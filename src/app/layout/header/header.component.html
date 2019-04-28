@@ -1,3 +1,25 @@
-<p>
-  header works!
-</p>
+<div class="navigation">
+  <div>
+    <button mat-stroked-button routerLink="" color="primary">Hjem</button>
+    <button mat-stroked-button routerLink="products" color="primary">Produkter</button>
+  </div>
+
+  <!-- *ngIf="!loggedIn" -->
+  <div >
+    <button mat-stroked-button routerLink="signup" color="primary">Registrer</button>
+    <button mat-stroked-button routerLink="signin" color="primary">Log Ind</button>
+  </div>
+
+  <!-- *ngIf="isAdmin" -->
+  <div >
+    <button mat-stroked-button routerLink="admin" color="primary">Kontrolpanel</button>
+  </div>
+
+  <!-- *ngIf="loggedIn" -->
+  <div >
+      <button mat-stroked-button routerLink="profile/myprofile" color="primary">Min Profil</button>
+      <div class="welcome-message">
+        <p>Logged in with {{loggedInUser.role | lowercase}}: {{loggedInUser.username}}</p>
+      </div>
+  </div>
+</div>

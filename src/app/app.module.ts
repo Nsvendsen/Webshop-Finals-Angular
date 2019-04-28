@@ -20,6 +20,7 @@ import { ViewProfileComponent } from './content/profile/view-profile/view-profil
 import { MyProfileComponent } from './content/profile/my-profile/my-profile.component';
 import { CreateOrEditItemComponent } from './content/admin/products/create-or-edit-item/create-or-edit-item.component';
 import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PageNotFoundComponent } from './content/page-not-found/page-not-found.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
