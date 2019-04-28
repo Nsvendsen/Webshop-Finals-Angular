@@ -12,13 +12,13 @@ import { ItemSliderComponent } from './content/index-page/item-slider/item-slide
 import { ProductsComponent } from './content/products/products.component';
 import { ViewOneItemComponent } from './content/products/view-one-item/view-one-item.component';
 import { AdminComponent } from './content/admin/admin.component';
-import { ViewOrEditItemComponent } from './content/admin/products/view-or-edit-item/view-or-edit-item.component';
 import { ProfileComponent } from './content/profile/profile.component';
 import { SignInComponent } from './content/sign-in/sign-in.component';
 import { SignUpComponent } from './content/sign-up/sign-up.component';
 import { ViewItemListComponent } from './content/products/view-item-list/view-item-list.component';
 import { ViewProfileComponent } from './content/profile/view-profile/view-profile.component';
 import { MyProfileComponent } from './content/profile/my-profile/my-profile.component';
+import { CreateOrEditItemComponent } from './content/admin/products/create-or-edit-item/create-or-edit-item.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +31,13 @@ import { MyProfileComponent } from './content/profile/my-profile/my-profile.comp
     ProductsComponent,
     ViewOneItemComponent,
     AdminComponent,
-    ViewOrEditItemComponent,
     ProfileComponent,
     SignInComponent,
     SignUpComponent,
     ViewItemListComponent,
     ViewProfileComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    CreateOrEditItemComponent
   ],
   imports: [
     BrowserModule,

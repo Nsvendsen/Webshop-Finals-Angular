@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewOrEditItemComponent } from './view-or-edit-item.component';
+import { CreateOrEditItemComponent } from './create-or-edit-item.component';
 
-describe('ViewOrEditItemComponent', () => {
-  let component: ViewOrEditItemComponent;
-  let fixture: ComponentFixture<ViewOrEditItemComponent>;
+describe('CreateOrEditItemComponent', () => {
+  let component: CreateOrEditItemComponent;
+  let fixture: ComponentFixture<CreateOrEditItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewOrEditItemComponent ]
+      declarations: [ CreateOrEditItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewOrEditItemComponent);
+    fixture = TestBed.createComponent(CreateOrEditItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
