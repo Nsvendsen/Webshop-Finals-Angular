@@ -21,6 +21,12 @@ import { MyProfileComponent } from './content/profile/my-profile/my-profile.comp
 import { CreateOrEditItemComponent } from './content/admin/products/create-or-edit-item/create-or-edit-item.component';
 import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,13 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
