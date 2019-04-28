@@ -31,7 +31,7 @@
       <option value="beautyproducts">Skønhedsprodukter</option>
       <option value="homeappliances">Boliginteriør</option>
     </select>
-  </mat-form-field>
+  </mat-form-field><br>
   <div *ngIf='productForm.controls.category.touched && productForm.controls.category.errors?.required'> 
       Kategori skal udfyldes
   </div>
@@ -57,7 +57,7 @@
           <!-- cdkAutosizeMaxRows="5" -->
   </mat-form-field><br>
   <div *ngIf='productForm.controls.description.touched && productForm.controls.description.errors?.required'> 
-      Description must be filled out
+      Beskrivelse skal udfyldes
   </div>
 
   <button mat-flat-button type="submit" color="primary">Registrer</button>
