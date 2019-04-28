@@ -19,6 +19,7 @@ import { ViewItemListComponent } from './content/products/view-item-list/view-it
 import { ViewProfileComponent } from './content/profile/view-profile/view-profile.component';
 import { MyProfileComponent } from './content/profile/my-profile/my-profile.component';
 import { CreateOrEditItemComponent } from './content/admin/products/create-or-edit-item/create-or-edit-item.component';
+import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CreateOrEditItemComponent } from './content/admin/products/create-or-ed
     ViewItemListComponent,
     ViewProfileComponent,
     MyProfileComponent,
-    CreateOrEditItemComponent
+    CreateOrEditItemComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
