@@ -27,6 +27,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProductsComponent } from './content/admin/admin-products/admin-products.component';
 import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-profiles.component';
@@ -64,7 +65,8 @@ import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-pro
     MatInputModule,
     MatSelectModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

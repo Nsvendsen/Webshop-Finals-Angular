@@ -1,6 +1,6 @@
 <h1>View Products</h1>
 
-<mat-card *ngFor="let item of items" class="example-card">
+<mat-card *ngFor="let item of items" class="example-card" (click)="navigate(item)">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{item.name}}</mat-card-title>
