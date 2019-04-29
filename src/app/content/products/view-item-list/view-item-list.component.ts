@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemDataService } from 'src/app/services/item-data.service';
+import { Item } from 'src/app/entities/item';
 
 @Component({
   selector: 'app-view-item-list',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewItemListComponent implements OnInit {
 
-  constructor() { }
+  items: Item[];
+
+  constructor(private itemDataService: ItemDataService) { }
 
   ngOnInit() {
+    this.itemDataService.getAllItems().subscribe((response: Item[]) => {
+      //If success
+      console.log(response); //Remove later
+      this.items = response;
+    }, error => {
+      //If fail
+      console.log("Error!", error);
+    });
   }
 
 }
