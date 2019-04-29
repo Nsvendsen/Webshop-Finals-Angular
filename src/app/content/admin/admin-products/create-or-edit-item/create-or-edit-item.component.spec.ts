@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from 'src/app/content/admin/products/create-or-edit-item/node_modules/@angular/core/testing';
 
 import { CreateOrEditItemComponent } from './create-or-edit-item.component';
 
