@@ -34,7 +34,7 @@ export class ViewOneItemComponent implements OnInit {
   }
 
   tiles: Tile[] = [
-    {text: 'one', cols: 1, rows: 3, color: 'lightblue'},
+    {text: this.oneItem.name, cols: 1, rows: 3, color: 'lightblue'},
     {text: 'Two', cols: 2, rows: 3, color: 'lightgreen'},
     {text: 'Three', cols: 1, rows: 3, color: 'lightpink'},
   ];

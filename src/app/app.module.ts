@@ -16,7 +16,6 @@ import { ProfileComponent } from './content/profile/profile.component';
 import { SignInComponent } from './content/sign-in/sign-in.component';
 import { SignUpComponent } from './content/sign-up/sign-up.component';
 import { ViewItemListComponent } from './content/products/view-item-list/view-item-list.component';
-import { ViewProfileComponent } from './content/admin/admin-profiles/view-profile/view-profile.component';
 import { MyProfileComponent } from './content/profile/my-profile/my-profile.component';
 import { CreateOrEditItemComponent } from './content/admin/admin-products/create-or-edit-item/create-or-edit-item.component';
 import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
@@ -50,7 +49,6 @@ import { AdminViewProfileListComponent } from './content/admin/admin-profiles/ad
     SignInComponent,
     SignUpComponent,
     ViewItemListComponent,
-    ViewProfileComponent,
     MyProfileComponent,
     CreateOrEditItemComponent,
     PageNotFoundComponent,
