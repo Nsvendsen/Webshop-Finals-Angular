@@ -16,7 +16,7 @@ import { ProfileComponent } from './content/profile/profile.component';
 import { SignInComponent } from './content/sign-in/sign-in.component';
 import { SignUpComponent } from './content/sign-up/sign-up.component';
 import { ViewItemListComponent } from './content/products/view-item-list/view-item-list.component';
-import { ViewProfileComponent } from './content/profile/view-profile/view-profile.component';
+import { ViewProfileComponent } from './content/admin/profiles/view-profile/view-profile.component';
 import { MyProfileComponent } from './content/profile/my-profile/my-profile.component';
 import { CreateOrEditItemComponent } from './content/admin/products/create-or-edit-item/create-or-edit-item.component';
 import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
@@ -28,6 +28,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfilesComponent } from './content/admin/profiles/profiles.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     ViewProfileComponent,
     MyProfileComponent,
     CreateOrEditItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProfilesComponent
   ],
   imports: [
     BrowserModule,

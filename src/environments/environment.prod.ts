@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "http://localhost" //Add port 8888?
+  apiUrl: "http://localhost/Webshop-Finals-PHP/api" //Add port 8888?
 };
