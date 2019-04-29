@@ -11,10 +11,12 @@ import { AdminComponent } from './content/admin/admin.component';
 import { CreateOrEditItemComponent } from './content/admin/admin-products/create-or-edit-item/create-or-edit-item.component';
 import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
 import { IndexPageComponent } from './content/index-page/index-page.component';
-import { ViewProfileComponent } from './content/admin/admin-profiles/view-profile/view-profile.component';
 import { MyProfileComponent } from './content/profile/my-profile/my-profile.component';
 import { ProfileComponent } from './content/profile/profile.component';
 import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-profiles.component';
+import { AdminViewItemListComponent } from './content/admin/admin-products/admin-view-item-list/admin-view-item-list.component';
+import { CreateOrEditProfileComponent } from './content/admin/admin-profiles/create-or-edit-profile/create-or-edit-profile.component';
+import { AdminViewProfileListComponent } from './content/admin/admin-profiles/admin-view-profile-list/admin-view-profile-list.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -36,11 +38,14 @@ const routes: Routes = [
   
     {path: 'admin', component: AdminComponent, children: [ //canActivate: [AuthGuard],
       {path: 'products', component: AdminProductsComponent, children: [
-        {path: '', component: CreateOrEditItemComponent},
-        {path: ':item-id', component: CreateOrEditItemComponent}
+        {path: 'new', component: CreateOrEditItemComponent},
+        {path: 'edit/:item-id', component: CreateOrEditItemComponent},
+        {path: 'list', component: AdminViewItemListComponent}
       ]},
       {path: 'profiles', component: AdminProfilesComponent, children: [
-        {path: ':profile-id', component: ViewProfileComponent}
+        {path: 'new', component: CreateOrEditProfileComponent},
+        {path: 'edit/:profile-id', component: CreateOrEditProfileComponent},
+        {path: 'list', component: AdminViewProfileListComponent}
       ]}
     ]}
   ]},

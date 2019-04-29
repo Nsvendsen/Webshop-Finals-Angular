@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewProfileComponent } from './view-profile.component';
+import { AdminViewItemListComponent } from './admin-view-item-list.component';
 
-describe('ViewProfileComponent', () => {
-  let component: ViewProfileComponent;
-  let fixture: ComponentFixture<ViewProfileComponent>;
+describe('AdminViewItemListComponent', () => {
+  let component: AdminViewItemListComponent;
+  let fixture: ComponentFixture<AdminViewItemListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewProfileComponent ]
+      declarations: [ AdminViewItemListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewProfileComponent);
+    fixture = TestBed.createComponent(AdminViewItemListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

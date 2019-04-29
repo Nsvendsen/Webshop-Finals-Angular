@@ -31,6 +31,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProductsComponent } from './content/admin/admin-products/admin-products.component';
 import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-profiles.component';
+import { AdminViewItemListComponent } from './content/admin/admin-products/admin-view-item-list/admin-view-item-list.component';
+import { CreateOrEditProfileComponent } from './content/admin/admin-profiles/create-or-edit-profile/create-or-edit-profile.component';
+import { AdminViewProfileListComponent } from './content/admin/admin-profiles/admin-view-profile-list/admin-view-profile-list.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-pro
     CreateOrEditItemComponent,
     PageNotFoundComponent,
     AdminProductsComponent,
-    AdminProfilesComponent
+    AdminProfilesComponent,
+    AdminViewItemListComponent,
+    CreateOrEditProfileComponent,
+    AdminViewProfileListComponent
   ],
   imports: [
     BrowserModule,
