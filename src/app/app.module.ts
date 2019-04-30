@@ -27,6 +27,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProductsComponent } from './content/admin/admin-products/admin-products.component';
 import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-profiles.component';
@@ -70,7 +71,8 @@ import { AdminViewProfileListComponent } from './content/admin/admin-profiles/ad
     MatSelectModule,
     MatCardModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
