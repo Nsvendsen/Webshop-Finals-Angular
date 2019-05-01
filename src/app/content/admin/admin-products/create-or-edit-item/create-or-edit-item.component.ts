@@ -3,6 +3,7 @@ import { Item } from 'src/app/entities/item';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-or-edit-item',
@@ -56,10 +57,13 @@ export class CreateOrEditItemComponent implements OnInit {
   
   createNewProduct(productForm){
     let item = productForm.value as Item;
+    //Format date
+    // var datePipe = new DatePipe("en-US");
+    // item.expirationDate = datePipe.transform(item.expirationDate,'yyyy-MM-dd');
     this.itemDataService.addItem(item).subscribe((response: Item) => {  
       //If all goes well:
       console.log(response); //Remove later
-      this.router.navigate(['/products/' + response.id]); //Navigate or stay?
+      // this.router.navigate(['/products/' + response.id]); //Navigate or stay?
     }, error => {
       //If web service fails:
       console.log("Error!", error);

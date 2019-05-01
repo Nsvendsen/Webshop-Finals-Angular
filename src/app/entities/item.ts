@@ -9,4 +9,7 @@ export class Item {
     dateTimeCreated: Date;
     dateTimeEdited: Date;
     expirationDate: Date;
+    // dateTimeCreated?: Date;
+    // dateTimeEdited?: Date;
+    // expirationDate?: Date;
 }

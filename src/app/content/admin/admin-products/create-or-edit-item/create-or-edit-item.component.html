@@ -37,6 +37,7 @@
   </div>
 
   <mat-form-field>
+      <!-- https://angular.io/api/common/DatePipe  [ngModel]="someobject.someattribute|date:'yyyy-mm-dd HH:mm:ss'"-->
         <input matInput [matDatepicker]="picker" placeholder="Udløbsdato" formControlName="expirationDate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -44,6 +45,23 @@
   <!-- <div *ngIf='productForm.controls.expirationDate.touched && productForm.controls.expirationDate.errors?.required'> 
         Udløbsdato skal udfyldes
   </div> -->
+
+  <!-- <mat-form-field>
+    <mat-select [(ngModel)]="productForm.value.isActive" placeholder="Produkt synligt" formControlName="isActive"> 
+        <mat-option [ngValue]="true">Ja</mat-option>
+        <mat-option [ngValue]="false">Nej</mat-option>
+    </mat-select>
+  </mat-form-field><br> -->
+
+    <label id="isActiveId">Produkt synligt:</label>
+    <mat-radio-group
+    aria-labelledby="isActiveId"
+    formControlName="isActive">
+    <!-- Replace 1, 0 with true, false -->
+    <mat-radio-button style="display: inline; margin-left: 10px" *ngFor="let option of [{'val': 1, 'name': 'Ja'}, {'val': 0, 'name': 'Nej'}]" [value]="option.val">
+        {{option.name}}
+    </mat-radio-button>
+    </mat-radio-group><br>
 
   <mat-form-field class="example-full-width">
       <!-- <textarea matInput type="text" placeholder="Description" formControlName="description"> -->
