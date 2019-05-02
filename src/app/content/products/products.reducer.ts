@@ -41,7 +41,8 @@ export function productsReducer(state: ProductsState = INITIAL_STATE, action:any
         case ProductsActions.GET_ALL_ITEMS: //action.payload = Sitter[] (all sitters from API)
             return tassign(state, { isProcessing: true })
         case ProductsActions.GET_ALL_ITEMS_SUCCESS:
-            return tassign(state, { isProcessing: false, items: [...state.items, ...action.payload]})
+            // return tassign(state, { isProcessing: false, items: [...state.items, ...action.payload]})
+            return tassign(state, { isProcessing: false, items: [...action.payload]})
         case ProductsActions.GET_ALL_ITEMS_FAILURE:
             return tassign(state, { isProcessing: false })
         default:

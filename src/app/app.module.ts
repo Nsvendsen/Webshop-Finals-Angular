@@ -30,6 +30,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProductsComponent } from './content/admin/admin-products/admin-products.component';
 import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-profiles.component';
@@ -81,7 +83,9 @@ import { rootReducer } from './store';
     MatTableModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    NgReduxModule, NgReduxRouterModule.forRoot()
+    NgReduxModule, NgReduxRouterModule.forRoot(),
+    MatDividerModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

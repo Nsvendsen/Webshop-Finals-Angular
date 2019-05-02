@@ -1,3 +1,5 @@
+<h1>Produktliste</h1>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -16,15 +18,15 @@
   </ng-container>
 
   <!-- In Stock Column -->
-  <ng-container matColumnDef="in_stock">
+  <ng-container matColumnDef="inStock">
     <th mat-header-cell *matHeaderCellDef> På lager </th>
-    <td mat-cell *matCellDef="let element"> {{element.in_stock}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.inStock}} </td>
   </ng-container>
 
   <!-- Is Active Column. TODO: Make isactive filter to change 1 and 0 to false/true??? -->
-  <ng-container matColumnDef="is_active">
+  <ng-container matColumnDef="isActive">
     <th mat-header-cell *matHeaderCellDef> Er aktiv </th>
-    <td mat-cell *matCellDef="let element"> {{element.is_active}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.isActive}} </td>
   </ng-container>
 
   <!-- Category Column -->
@@ -42,6 +44,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<!-- https://stackoverflow.com/questions/45318164/how-to-use-paginator-from-material-angular -->
+<!-- https://material.angular.io/components/table/overview  go to pagination -->
+<mat-paginator [length]="dataSource.length"
+              [pageSize]="25"
+              [pageSizeOptions]="[10, 25, 50, 100]">
+</mat-paginator>
 
 <div *ngIf="isProcessing">
   <mat-spinner></mat-spinner>

@@ -1,5 +1,5 @@
-<!-- <h1 *ngIf="isCreatingItem">Register Product</h1>
-<h1 *ngIf="!isCreatingItem">Edit Product</h1> -->
+<h1 *ngIf="isCreatingItem">Opret Produkt</h1>
+<h1 *ngIf="!isCreatingItem">Rediger Produkt</h1>
 
 <form novalidate [formGroup]="productForm" (ngSubmit)="onSubmit(productForm)">
   <mat-form-field class="example-full-width">
@@ -58,7 +58,7 @@
     aria-labelledby="isActiveId"
     formControlName="isActive">
     <!-- Replace 1, 0 with true, false -->
-    <mat-radio-button style="display: inline; margin-left: 10px" *ngFor="let option of [{'val': 1, 'name': 'Ja'}, {'val': 0, 'name': 'Nej'}]" [value]="option.val">
+    <mat-radio-button style="display: inline; margin-left: 10px" *ngFor="let option of [{'val': true, 'name': 'Ja'}, {'val': false, 'name': 'Nej'}]" [value]="option.val">
         {{option.name}}
     </mat-radio-button>
     </mat-radio-group><br>

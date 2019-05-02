@@ -6,10 +6,10 @@ export class Item {
     description: string;
     isActive: boolean;
     category: string;
-    dateTimeCreated: Date;
-    dateTimeEdited: Date;
-    expirationDate: Date;
-    // dateTimeCreated?: Date;
-    // dateTimeEdited?: Date;
-    // expirationDate?: Date;
+    // dateTimeCreated: Date;
+    // dateTimeEdited: Date;
+    // expirationDate: Date;
+    dateTimeCreated?: Date;
+    dateTimeEdited?: Date;
+    expirationDate?: Date;
 }
