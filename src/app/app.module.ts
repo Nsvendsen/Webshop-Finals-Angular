@@ -29,12 +29,17 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProductsComponent } from './content/admin/admin-products/admin-products.component';
 import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-profiles.component';
 import { AdminViewItemListComponent } from './content/admin/admin-products/admin-view-item-list/admin-view-item-list.component';
 import { CreateOrEditProfileComponent } from './content/admin/admin-profiles/create-or-edit-profile/create-or-edit-profile.component';
 import { AdminViewProfileListComponent } from './content/admin/admin-profiles/admin-view-profile-list/admin-view-profile-list.component';
+import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
+import { IAppState } from './store';
+import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
+import { rootReducer } from './store';
 
 @NgModule({
   declarations: [
@@ -74,9 +79,22 @@ import { AdminViewProfileListComponent } from './content/admin/admin-profiles/ad
     HttpClientModule,
     MatGridListModule,
     MatTableModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    NgReduxModule, NgReduxRouterModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  // Sets up redux in our application.
+  constructor(private ngRedux: NgRedux<IAppState>,
+    private devTool: DevToolsExtension,
+    private ngReduxRouter: NgReduxRouter,) {
+   
+    this.ngRedux.configureStore(
+      rootReducer, {});
+ 
+      ngReduxRouter.initialize(/* args */);   
+  }
+}
