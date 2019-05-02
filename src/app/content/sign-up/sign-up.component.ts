@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserApiService } from 'src/app/services/user-api.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  userForm;
+
+  constructor(private fb: FormBuilder, private router: Router, private userApiService: UserApiService) { }
 
   ngOnInit() {
+    this.userForm = this.fb.group(
+      {
+        id: [''],
+        firstName: [''],
+        lastName: [''],
+        address: [''],
+        zipCode: [''],
+        email: [''],
+        confirmedEmail: [''],
+        gender: [''],
+      }
+    )
   }
 
 }
