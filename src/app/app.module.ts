@@ -42,6 +42,10 @@ import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store'
 import { IAppState } from './store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { rootReducer } from './store';
+import { AdminCategoriesComponent } from './content/admin/admin-categories/admin-categories.component';
+import { CreateOrEditCategoryComponent } from './content/admin/admin-categories/create-or-edit-category/create-or-edit-category.component';
+import { AdminViewCategoryListComponent } from './content/admin/admin-categories/admin-view-category-list/admin-view-category-list.component';
+import { AdminViewOneCategoryComponent } from './content/admin/admin-categories/admin-view-one-category/admin-view-one-category.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +69,11 @@ import { rootReducer } from './store';
     AdminProfilesComponent,
     AdminViewItemListComponent,
     CreateOrEditProfileComponent,
-    AdminViewProfileListComponent
+    AdminViewProfileListComponent,
+    AdminCategoriesComponent,
+    CreateOrEditCategoryComponent,
+    AdminViewCategoryListComponent,
+    AdminViewOneCategoryComponent
   ],
   imports: [
     BrowserModule,

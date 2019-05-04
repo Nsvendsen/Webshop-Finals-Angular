@@ -17,11 +17,11 @@ export class AdminViewItemListComponent implements OnInit {
   // displayedColumns: string[] = ['id', 'name', 'in_stock', 'is_active', 'category', 'price']; //Make backend use models with camel case to fix names?
   // items: any[]; 
 
-  displayedColumns: string[] = ['id', 'name', 'inStock', 'isActive', 'category', 'price']; 
+  displayedColumns: string[] = ['id', 'name', 'inStock', 'isActive', 'category', 'price']; //Sets columns in this order.
   items: Item[];  
   isProcessing: boolean;
 
-  // https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource  add items instead of hardcoded ITEM_DATA
+  // https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource  02-05-2019 add items instead of hardcoded ITEM_DATA
   dataSource = new MatTableDataSource<Item>(); //ITEM_DATA / this.items as param
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
