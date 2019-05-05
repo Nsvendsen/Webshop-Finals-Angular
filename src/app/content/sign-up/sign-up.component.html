@@ -33,14 +33,14 @@
         <input matInput type="email" id="emailId" placeholder="Email" formControlName="email">
     </mat-form-field><br>
     <div *ngIf='userForm.controls.email.touched && userForm.controls.email.errors?.required'> 
-        Antal varer skal udfyldes
+        Skriv venligst din email
     </div>
 
     <mat-form-field class="example-full-width">
         <input matInput type="email" id="confirmedEmailId" placeholder="Skriv email igen" formControlName="confirmedEmail">
     </mat-form-field><br>
     <div *ngIf='userForm.controls.confirmedEmail.touched && userForm.controls.confirmedEmail.errors?.required'> 
-        Antal varer skal udfyldes
+        Skriv venligst din email
     </div>
 
     <label id="genderId">Vælg køn:</label>
@@ -51,5 +51,5 @@
       </mat-radio-button>
     </mat-radio-group><br>
 
-    <button mat-flat-button type="submit" color="primary">Registrer</button>
+    <button mat-flat-button type="submit" color="primary" >Registrer</button>
   </form>

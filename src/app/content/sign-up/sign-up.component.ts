@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserApiService } from 'src/app/services/user-api.service';
 import { User } from 'src/app/entities/user';
+import { MustMatch } from './validators';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -13,6 +15,7 @@ export class SignUpComponent implements OnInit {
 
   userForm;
   userBeingCreated: boolean = true;
+  
   constructor(private fb: FormBuilder, private router: Router, private userApiService: UserApiService) { }
 
   ngOnInit() {
@@ -23,9 +26,11 @@ export class SignUpComponent implements OnInit {
         lastName: ['',[Validators.required]],
         address: ['',[Validators.required]],
         zipCode: ['',[Validators.required]],
-        email: ['',[Validators.required]],
-        confirmedEmail: ['',[Validators.required]],
+        email: ['',[Validators.required, Validators.email]],
+        confirmedEmail: ['',[Validators.required, Validators.email]],
         gender: ['',[Validators.required]],
+      } , {
+        validator: MustMatch('email', 'confirmedEmail') // https://jasonwatmore.com/post/2018/11/07/angular-7-reactive-forms-validation-example. Burde password ikke tilføjes?
       }
     );
   }
