@@ -17,6 +17,9 @@ import { CreateOrEditProductComponent } from './content/admin/admin-products/cre
 import { AdminViewProductListComponent } from './content/admin/admin-products/admin-view-product-list/admin-view-product-list.component';
 import { ViewOneProductComponent } from './content/products/view-one-product/view-one-product.component';
 import { ViewProductListComponent } from './content/products/view-product-list/view-product-list.component';
+import { AdminProductVariationsComponent } from './content/admin/admin-products/admin-product-variations/admin-product-variations.component';
+import { AdminViewProductVariationsComponent } from './content/admin/admin-products/admin-product-variations/admin-view-product-variations/admin-view-product-variations.component';
+import { CreateOrEditProductVariationComponent } from './content/admin/admin-products/admin-product-variations/create-or-edit-product-variation/create-or-edit-product-variation.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -32,20 +35,19 @@ const routes: Routes = [
     ]},
 
     {path: 'products', component: ProductsComponent, children: [
-      // {path: ':item-id', component: ViewOneItemComponent},
-      // {path: '', component: ViewItemListComponent}
       {path: ':product-id', component: ViewOneProductComponent},
       {path: '', component: ViewProductListComponent}
     ]},
   
     {path: 'admin', component: AdminComponent, children: [ //canActivate: [AuthGuard],
       {path: 'products', component: AdminProductsComponent, children: [
-        // {path: 'new', component: CreateOrEditItemComponent},
-        // {path: 'edit/:item-id', component: CreateOrEditItemComponent},
-        // {path: 'list', component: AdminViewItemListComponent}
         {path: 'new', component: CreateOrEditProductComponent},
         {path: 'edit/:product-id', component: CreateOrEditProductComponent},
-        {path: 'list', component: AdminViewProductListComponent}
+        {path: 'list', component: AdminViewProductListComponent},
+        {path: 'variations', component: AdminProductVariationsComponent, children: [
+          {path: ':product-id', component: AdminViewProductVariationsComponent},
+          {path: 'new', component: CreateOrEditProductVariationComponent}
+        ]}
       ]},
       {path: 'profiles', component: AdminProfilesComponent, children: [
         {path: 'new', component: CreateOrEditProfileComponent},

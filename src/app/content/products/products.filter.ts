@@ -43,10 +43,12 @@ export class YesNoBooleanFilter implements PipeTransform {
 
     transform(value: boolean): any{
         let valueString = value.toString();
-        if(valueString === 'true') {
+        // console.log(value)
+        // console.log(typeof(value));
+        if(valueString === '1' || valueString === 'true') {
             return "Ja"; 
         }  
-        else if (valueString === 'false') {
+        else if (valueString === '0' || valueString === 'false') {
             return "Nej";
         }
     }
