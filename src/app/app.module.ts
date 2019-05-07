@@ -8,16 +8,12 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { ContentComponent } from './content/content.component';
 import { IndexPageComponent } from './content/index-page/index-page.component';
-import { ItemSliderComponent } from './content/products/item-slider/item-slider.component';
 import { ProductsComponent } from './content/products/products.component';
-import { ViewOneItemComponent } from './content/products/view-one-item/view-one-item.component';
 import { AdminComponent } from './content/admin/admin.component';
 import { ProfileComponent } from './content/profile/profile.component';
 import { SignInComponent } from './content/sign-in/sign-in.component';
 import { SignUpComponent } from './content/sign-up/sign-up.component';
-import { ViewItemListComponent } from './content/products/view-item-list/view-item-list.component';
 import { MyProfileComponent } from './content/profile/my-profile/my-profile.component';
-import { CreateOrEditItemComponent } from './content/admin/admin-products/create-or-edit-item/create-or-edit-item.component';
 import { PageNotFoundComponent } from './content/page-not-found/page-not-found.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -35,17 +31,21 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminProductsComponent } from './content/admin/admin-products/admin-products.component';
 import { AdminProfilesComponent } from './content/admin/admin-profiles/admin-profiles.component';
-import { AdminViewItemListComponent } from './content/admin/admin-products/admin-view-item-list/admin-view-item-list.component';
 import { CreateOrEditProfileComponent } from './content/admin/admin-profiles/create-or-edit-profile/create-or-edit-profile.component';
 import { AdminViewProfileListComponent } from './content/admin/admin-profiles/admin-view-profile-list/admin-view-profile-list.component';
 import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
 import { IAppState } from './store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { rootReducer } from './store';
-import { AdminCategoriesComponent } from './content/admin/admin-categories/admin-categories.component';
-import { CreateOrEditCategoryComponent } from './content/admin/admin-categories/create-or-edit-category/create-or-edit-category.component';
-import { AdminViewCategoryListComponent } from './content/admin/admin-categories/admin-view-category-list/admin-view-category-list.component';
-import { AdminViewOneCategoryComponent } from './content/admin/admin-categories/admin-view-one-category/admin-view-one-category.component';
+import { CreateOrEditProductComponent } from './content/admin/admin-products/create-or-edit-product/create-or-edit-product.component';
+import { AdminViewProductListComponent } from './content/admin/admin-products/admin-view-product-list/admin-view-product-list.component';
+import { ProductSliderComponent } from './content/products/product-slider/product-slider.component';
+import { ViewProductListComponent } from './content/products/view-product-list/view-product-list.component';
+import { ViewOneProductComponent } from './content/products/view-one-product/view-one-product.component';
+import { AdminProductVariationsComponent } from './content/admin/admin-products/admin-product-variations/admin-product-variations.component';
+import { AdminViewProductVariationsComponent } from './content/admin/admin-products/admin-product-variations/admin-view-product-variations/admin-view-product-variations.component';
+import { CreateOrEditProductVariationComponent } from './content/admin/admin-products/admin-product-variations/create-or-edit-product-variation/create-or-edit-product-variation.component';
+import { CustomCurrencyFilter, YesNoBooleanFilter, GenderFilter } from './content/products/products.filter';
 
 @NgModule({
   declarations: [
@@ -54,26 +54,28 @@ import { AdminViewOneCategoryComponent } from './content/admin/admin-categories/
     HeaderComponent,
     ContentComponent,
     IndexPageComponent,
-    ItemSliderComponent,
     ProductsComponent,
-    ViewOneItemComponent,
     AdminComponent,
     ProfileComponent,
     SignInComponent,
     SignUpComponent,
-    ViewItemListComponent,
     MyProfileComponent,
-    CreateOrEditItemComponent,
     PageNotFoundComponent,
     AdminProductsComponent,
     AdminProfilesComponent,
-    AdminViewItemListComponent,
     CreateOrEditProfileComponent,
     AdminViewProfileListComponent,
-    AdminCategoriesComponent,
-    CreateOrEditCategoryComponent,
-    AdminViewCategoryListComponent,
-    AdminViewOneCategoryComponent
+    CreateOrEditProductComponent,
+    AdminViewProductListComponent,
+    ProductSliderComponent,
+    ViewProductListComponent,
+    ViewOneProductComponent,
+    AdminProductVariationsComponent,
+    AdminViewProductVariationsComponent,
+    CreateOrEditProductVariationComponent,
+    CustomCurrencyFilter,
+    YesNoBooleanFilter,
+    GenderFilter
   ],
   imports: [
     BrowserModule,

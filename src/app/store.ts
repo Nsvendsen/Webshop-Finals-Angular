@@ -2,9 +2,12 @@ import { routerReducer } from '@angular-redux/router';
 import { combineReducers } from 'redux';
 import { Item } from './entities/item';
 import { productsReducer } from './content/products/products.reducer';
+import { Product } from './entities/product';
 
 export class ProductsState {
-    items: Item[];
+    // items: Item[];
+    allProducts: Product[];
+
     // itemId: string; 
     isAdmin: boolean; //= false;
     // clickedObject: any; //alternative to itemId

@@ -12,22 +12,22 @@ export class ProductApiService {
 
   //API related methods. Subscribe to get the result.
   getAllProducts(){
-    return this.http.get(environment.apiUrl + "/product");
+    return this.http.get(environment.apiUrl + "/product.php");
   }
 
   getProduct(id: number){ //Perhaps string?
-    return this.http.get(environment.apiUrl + "/product/" + id);
+    return this.http.get(environment.apiUrl + "/product.php/" + id);
   }
 
   addProduct(product: Product){ 
-    return this.http.post(environment.apiUrl + "/product", product);
+    return this.http.post(environment.apiUrl + "/product.php", product);
   }
 
   deleteProduct(id: number){ //Perhaps string?
-    return this.http.delete(environment.apiUrl + "/product/" + id); 
+    return this.http.delete(environment.apiUrl + "/product.php/" + id); 
   }
 
   updateProduct(product: Product){ 
-    return this.http.put(environment.apiUrl + "/product/" + product.id, product); 
+    return this.http.put(environment.apiUrl + "/product.php/" + product.id, product); 
   }
 }

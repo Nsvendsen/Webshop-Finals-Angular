@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../../store';
-import { ItemDataService } from 'src/app/services/item-data.service';
-import { Item } from 'src/app/entities/item';
+import { ProductApiService } from 'src/app/services/product-api.service';
+import { Product } from 'src/app/entities/product';
 
 @Injectable({ providedIn: 'root'})
 
@@ -10,65 +10,65 @@ import { Item } from 'src/app/entities/item';
 export class ProductsActions {
 
 // We depencency inject the redux library.
-constructor (private ngRedux: NgRedux<IAppState>, private itemDataService: ItemDataService) {} 
+constructor (private ngRedux: NgRedux<IAppState>, private productApiService: ProductApiService) {} 
 
   // This gives a strongly typed way to call an action.
-  static CREATE_ITEM: string = 'CREATE_ITEM'; //Create
-  static CREATE_ITEM_SUCCESS: string = 'CREATE_ITEM_SUCCESS'; //Create
-  static CREATE_ITEM_FAILURE: string = 'CREATE_ITEM_FAILURE'; //Create
-//   static SAVE_ID: string = 'SAVE_ID'; //Save ID of item about to be updated
-  static UPDATE_ITEM: string = 'UPDATE_ITEM'; //Update
-  static DELETE_ITEM: string = 'DELETE_ITEM'; //Delete
+  static CREATE_PRODUCT: string = 'CREATE_PRODUCT'; //Create
+  static CREATE_PRODUCT_SUCCESS: string = 'CREATE_PRODUCT_SUCCESS'; //Create
+  static CREATE_PRODUCT_FAILURE: string = 'CREATE_PRODUCT_FAILURE'; //Create
+//   static SAVE_ID: string = 'SAVE_ID'; //Save ID of product about to be updated
+  static UPDATE_PRODUCT: string = 'UPDATE_PRODUCT'; //Update
+  static DELETE_PRODUCT: string = 'DELETE_PRODUCT'; //Delete
 //   static ENABLE_ADMIN_AUTHORITY: string = 'ENABLE_ADMIN_AUTHORITY';
-  static GET_ALL_ITEMS: string = 'GET_ALL_ITEMS';
-  static GET_ALL_ITEMS_SUCCESS: string = 'GET_ALL_ITEMS_SUCCESS';
-  static GET_ALL_ITEMS_FAILURE: string = 'GET_ALL_ITEMS_FAILURE';
+  static GET_ALL_PRODUCTS: string = 'GET_ALL_PRODUCTS';
+  static GET_ALL_PRODUCTS_SUCCESS: string = 'GET_ALL_PRODUCTS_SUCCESS';
+  static GET_ALL_PRODUCTS_FAILURE: string = 'GET_ALL_PRODUCTS_FAILURE';
 
-  createItem(item: Item): void {
+  createProduct(product: Product): void {
     //Sets isProcessing to true(spinner)
     this.ngRedux.dispatch({
-      type: ProductsActions.CREATE_ITEM,
+      type: ProductsActions.CREATE_PRODUCT,
       // NO PAYLOAD
     });
 
     //Action creater calls web service, and dispatches new redux action.
-    this.itemDataService.addItem(item).subscribe(response => { //Subscribing is needed to make it work. //save in DB
+    this.productApiService.addProduct(product).subscribe(response => { //Subscribing is needed to make it work. //save in DB
 
       //If all goes well.
       this.ngRedux.dispatch({
-        type: ProductsActions.CREATE_ITEM_SUCCESS,
-        payload: response // response is the payload because item now has an id. Else use item.
+        type: ProductsActions.CREATE_PRODUCT_SUCCESS,
+        payload: response // response is the payload because product now has an id. Else use product.
       });
     }, error => {
-      console.log("Error! Item was not created", error);
+      console.log("Error! Product was not created", error);
 
       //If web service fails.
       this.ngRedux.dispatch({
-        type: ProductsActions.CREATE_ITEM_FAILURE,
+        type: ProductsActions.CREATE_PRODUCT_FAILURE,
         payload: error //response
       });
     }); 
   }
 
-  updateItem(item: Item): void { 
-    this.itemDataService.updateItem(item).subscribe(response => {
+  updateProduct(product: Product): void { 
+    this.productApiService.updateProduct(product).subscribe(response => {
       this.ngRedux.dispatch({
-        type: ProductsActions.UPDATE_ITEM,
-        payload: response //response or item
+        type: ProductsActions.UPDATE_PRODUCT,
+        payload: response //response or product
       });
     }, error => {
-      console.log("Error! Item was not updated", error);
+      console.log("Error! Product was not updated", error);
     });
   }
 
-  deleteItem(id: number): void { 
-    this.itemDataService.deleteItem(id).subscribe(response => {
+  deleteProduct(id: number): void { 
+    this.productApiService.deleteProduct(id).subscribe(response => {
       this.ngRedux.dispatch({
-        type: ProductsActions.DELETE_ITEM,
+        type: ProductsActions.DELETE_PRODUCT,
         payload: id
       });
     }, error => { //Might cause error?
-      console.log("Error! Item was not deleted", error);
+      console.log("Error! Product was not deleted", error);
     }); 
   }
 
@@ -79,28 +79,28 @@ constructor (private ngRedux: NgRedux<IAppState>, private itemDataService: ItemD
 //     });
 //   }
 
-  getAllItems(): boolean { //: boolean or void
-
+  getAllProducts(): boolean { //: boolean or void
+    console.log("getAllProducts() called"); //Remove later
     //Sets isProcessing to true(spinner)
     this.ngRedux.dispatch({
-      type: ProductsActions.GET_ALL_ITEMS,
+      type: ProductsActions.GET_ALL_PRODUCTS,
       //NO PAYLOAD
     });
 
-    this.itemDataService.getAllItems().subscribe((responseFromApi: any[]) => { 
+    this.productApiService.getAllProducts().subscribe((responseFromApi: any[]) => { 
     //   const myData = responseFromApi.filter(x => x.isActive === 1); // 1 or true?
-    //   console.log(myData);
+      console.log(responseFromApi);
 
       //If it was a success
       this.ngRedux.dispatch({
-        type: ProductsActions.GET_ALL_ITEMS_SUCCESS,
+        type: ProductsActions.GET_ALL_PRODUCTS_SUCCESS,
         payload: responseFromApi //myData filter the data? 
       });
     }, error => {
       console.log("Error! ", error);
       //If websevice fails
       this.ngRedux.dispatch({
-        type: ProductsActions.GET_ALL_ITEMS_FAILURE,
+        type: ProductsActions.GET_ALL_PRODUCTS_FAILURE,
         payload: error 
       });
     });
