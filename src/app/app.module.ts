@@ -46,6 +46,7 @@ import { AdminProductVariationsComponent } from './content/admin/admin-products/
 import { AdminViewProductVariationsComponent } from './content/admin/admin-products/admin-product-variations/admin-view-product-variations/admin-view-product-variations.component';
 import { CreateOrEditProductVariationComponent } from './content/admin/admin-products/admin-product-variations/create-or-edit-product-variation/create-or-edit-product-variation.component';
 import { CustomCurrencyFilter, YesNoBooleanFilter, GenderFilter } from './content/products/products.filter';
+import { BasketComponent } from './content/basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { CustomCurrencyFilter, YesNoBooleanFilter, GenderFilter } from './conten
     CreateOrEditProductVariationComponent,
     CustomCurrencyFilter,
     YesNoBooleanFilter,
-    GenderFilter
+    GenderFilter,
+    BasketComponent
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,26 @@
 import { routerReducer } from '@angular-redux/router';
 import { combineReducers } from 'redux';
-import { Item } from './entities/item';
 import { productsReducer } from './content/products/products.reducer';
 import { Product } from './entities/product';
+import { basketReducer } from './content/basket/basket.reducer';
 
 export class ProductsState {
-    // items: Item[];
-    allProducts: Product[];
-
-    // itemId: string; 
+    allProducts: Product[]; 
     isAdmin: boolean; //= false;
-    // clickedObject: any; //alternative to itemId
-
     isProcessing: boolean; //Spinner
+}
+
+export class BasketState {
+    productsInBasket: Product[];
 }
 
 // The applications state is defined here. Every variable that my application needs should be here.
 export class IAppState {
     products?: ProductsState;
+    basketProducts?: BasketState;
 }
 export const rootReducer = combineReducers<IAppState>({
-    products: productsReducer
+    products: productsReducer,
+    basketProducts: basketReducer
     // router: routerReducer
 });

@@ -5,29 +5,21 @@ export class Product {
     isActive: boolean;
     category: string;
     price: number;
+    discountPercent?: number;
     dateTimeCreated?: Date;
     dateTimeEdited?: Date;
     activeFromDate?: Date;
     expirationDate?: Date;
 
-    productVariations: ProductVariation[];
+    productVariations?: ProductVariation[];
+    //get product images
 }
 
 export class ProductVariation {
     id: number;
     inStock: number;
-    // price: number; //Remove and use the price on product?
     sku: string;
-    discountPercent?: number; //Add this to the product instead like price to keep things simple?
+    size?: string;
 
     productId: number;
-    // productVariationAttributes: ProductVariationAttribute[];
 }
-
-// export class ProductVariationAttribute {
-    // id;
-    // name: string;
-    // value: string;
-
-    // productVariationId: number;
-// }

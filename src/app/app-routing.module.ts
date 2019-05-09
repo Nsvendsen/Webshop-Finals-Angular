@@ -20,6 +20,7 @@ import { ViewProductListComponent } from './content/products/view-product-list/v
 import { AdminProductVariationsComponent } from './content/admin/admin-products/admin-product-variations/admin-product-variations.component';
 import { AdminViewProductVariationsComponent } from './content/admin/admin-products/admin-product-variations/admin-view-product-variations/admin-view-product-variations.component';
 import { CreateOrEditProductVariationComponent } from './content/admin/admin-products/admin-product-variations/create-or-edit-product-variation/create-or-edit-product-variation.component';
+import { BasketComponent } from './content/basket/basket.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -33,6 +34,8 @@ const routes: Routes = [
     {path: 'profile', component: ProfileComponent, children: [ //canActivate: [AuthGuard],
       {path: 'myprofile', component: MyProfileComponent}
     ]},
+
+    {path: 'basket', component: BasketComponent},
 
     {path: 'products', component: ProductsComponent, children: [
       {path: ':product-id', component: ViewOneProductComponent},

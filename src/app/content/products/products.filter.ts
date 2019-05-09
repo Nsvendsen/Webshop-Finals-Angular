@@ -54,12 +54,13 @@ export class YesNoBooleanFilter implements PipeTransform {
     }
 }
 
+// Custom propperly displays currency values. 
 @Pipe({name: 'customCurrencyFilter'}) //This is what you use in html.
 @Injectable({providedIn: 'root'})
 export class CustomCurrencyFilter implements PipeTransform {
     transform(price: number): any{ 
         let thePrice = Number(price);
-        thePrice /= 100;
+        thePrice /= 100; //Divide by 100 because currency is stored as oere in the database.
         let thePriceString = thePrice.toString();
         return "DKK" + thePriceString; //Perhaps make take currency type as param and concatinate here.
     }

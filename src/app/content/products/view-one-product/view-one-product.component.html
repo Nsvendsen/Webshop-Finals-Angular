@@ -1,8 +1,4 @@
-<p>
-  view-one-item works!
-</p>
-
-
+<div *ngIf="oneProduct"> <!-- If statement is to avoid error. Page loads before response from webservice comes back -->
 <table>
 <thead>
     <tr>
@@ -11,7 +7,6 @@
         <th>Product Info</th>
     </tr>
 </thead>
-    <!-- Bulbasaur -->
     <tr>
         <td>
           <img width="50" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw9ba4a01d/images/highres/8435189817149-3.jpg">
@@ -21,18 +16,22 @@
         <td>
           {{oneProduct.name}}<br>
           {{oneProduct.description}}<br>
-          {{oneProduct.price}}  <a mat-stroked-button routerLink=".">Add to cart</a><br>
-          <!-- {{oneProduct.inStock}}<br> -->
-          <mat-form-field>
-            <mat-select placeholder="Pick Size">
-              <mat-option value="32">32</mat-option>
-              <mat-option value="34">34</mat-option>
-              <mat-option value="36">36</mat-option>
-              <mat-option value="38">38</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </td>
+          {{oneProduct.price | customCurrencyFilter}}<br> <!-- <a mat-stroked-button routerLink=".">Add to cart</a>-->
+          <form novalidate [formGroup]="basketForm" (ngSubmit)="onSubmit(basketForm)">
+            <!-- *ngIf="oneProduct.category == 'sko'" -->
+            <mat-form-field>
+              <mat-select placeholder="Vælg størrelse" formControlName="variationId">
+                <mat-option *ngFor="let variation of oneProduct.productVariations" [value]="variation.id">{{variation.size}} 
+                  <p style="display: inline; color: red" *ngIf="variation.inStock <= 10">(Kun {{variation.inStock}} par tilbage)</p>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
+            <button mat-flat-button type="submit" color="primary">Tilføj til kurv</button>
+          </form>
+        </td>
+        <!-- How should images be handled?-->
     </tr>
 </tbody>
 </table>
+</div>

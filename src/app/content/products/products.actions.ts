@@ -80,7 +80,6 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
 //   }
 
   getAllProducts(): boolean { //: boolean or void
-    console.log("getAllProducts() called"); //Remove later
     //Sets isProcessing to true(spinner)
     this.ngRedux.dispatch({
       type: ProductsActions.GET_ALL_PRODUCTS,

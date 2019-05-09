@@ -16,12 +16,12 @@ import { ProductApiService } from 'src/app/services/product-api.service';
 export class AdminViewProductVariationsComponent implements OnInit {
 
   // VIEW VARIATIONS FOR ONE PRODUCT
-  displayedColumns: string[] = ['id', 'sku', 'inStock']; //Sets columns in this order. add 'price', 'discountPercent'?
+  displayedColumns: string[] = ['id', 'sku', 'inStock', 'size']; //Sets columns in this order.
   product: Product;  
   isProcessing: boolean;
 
   // https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource  02-05-2019 add products instead of hardcoded ITEM_DATA
-  dataSource = new MatTableDataSource<ProductVariation>(); //ITEM_DATA / this.products as param
+  dataSource = new MatTableDataSource<ProductVariation>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private ngRedux: NgRedux<IAppState>, private router: Router, private productApiService: ProductApiService, 
