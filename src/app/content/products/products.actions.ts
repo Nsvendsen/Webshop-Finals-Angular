@@ -19,7 +19,6 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
 //   static SAVE_ID: string = 'SAVE_ID'; //Save ID of product about to be updated
   static UPDATE_PRODUCT: string = 'UPDATE_PRODUCT'; //Update
   static DELETE_PRODUCT: string = 'DELETE_PRODUCT'; //Delete
-//   static ENABLE_ADMIN_AUTHORITY: string = 'ENABLE_ADMIN_AUTHORITY';
   static GET_ALL_PRODUCTS: string = 'GET_ALL_PRODUCTS';
   static GET_ALL_PRODUCTS_SUCCESS: string = 'GET_ALL_PRODUCTS_SUCCESS';
   static GET_ALL_PRODUCTS_FAILURE: string = 'GET_ALL_PRODUCTS_FAILURE';
@@ -71,13 +70,6 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
       console.log("Error! Product was not deleted", error);
     }); 
   }
-
-//   enableAdminAuthority(): void {
-//     this.ngRedux.dispatch({
-//       type: ProductsActions.ENABLE_ADMIN_AUTHORITY,
-//       payload: true
-//     });
-//   }
 
   getAllProducts(): boolean { //: boolean or void
     //Sets isProcessing to true(spinner)

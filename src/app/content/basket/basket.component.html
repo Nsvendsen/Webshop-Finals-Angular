@@ -1,3 +1,28 @@
-<p>
-  basket works!
-</p>
+<h3 *ngIf="productsInBasket.length != 0">Din indkøbskurv:</h3>
+<h3 *ngIf="productsInBasket.length == 0">Din indkøbskurv er tom</h3>
+
+<table *ngFor="let oneProduct of productsInBasket">
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th>Product Info</th>
+      </tr>
+  </thead>
+      <tr>
+          <td>
+            <img width="50" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw9ba4a01d/images/highres/8435189817149-3.jpg">
+            <img width="50" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw9b9d7dfa/images/highres/8435189817149-2.jpg">
+            <img width="50" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw2f04d014/images/highres/8435189817149-1.jpg"></td>
+          <td><img width="150" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw58b5dbb6/images/highres/8435189817149.jpg"></td>
+          <td>
+            {{oneProduct.name}}<br>
+            {{oneProduct.description}}<br>
+            {{oneProduct.price | customCurrencyFilter}}<br>
+            Størrelse{{oneProduct.productVariations[0].size}}<br>
+            <button mat-flat-button type="button" style="background-color: red" color="primary" (click)="removeFromBasket(oneProduct.id)">Fjern fra kurv</button>
+          </td>
+          <!-- How should images be handled?-->
+      </tr>
+  </tbody>
+</table>

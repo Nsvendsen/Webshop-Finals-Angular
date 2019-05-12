@@ -14,6 +14,7 @@ import { BasketActions } from '../../basket/basket.actions';
 export class ViewOneProductComponent implements OnInit {
 
   oneProduct: Product;
+  hasSizes: boolean;
   basketForm;
 
   constructor( private productApiService: ProductApiService, private router: Router, private productsActions: ProductsActions,
@@ -26,6 +27,15 @@ export class ViewOneProductComponent implements OnInit {
     this.productApiService.getProduct(Number(currentProductId)).subscribe((response: Product) => { //Use redux way
       console.log(response);
       this.oneProduct = response;
+      if(this.oneProduct.productVariations[0].size){
+        this.hasSizes = true;
+
+        // this.basketForm = this.fb.group(
+        //   {
+        //     variationId: ['', Validators.required]
+        //   }
+        // );
+      }
     }, error => {
       console.log("error!" + error);
     });

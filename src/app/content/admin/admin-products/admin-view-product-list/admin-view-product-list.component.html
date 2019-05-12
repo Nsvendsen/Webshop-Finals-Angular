@@ -32,10 +32,16 @@
     <td mat-cell *matCellDef="let element"> {{element.category}} </td>
   </ng-container>
 
-  <!-- Price Column TODO: Make currency filter to change 1 and 0 to false/true??? -->
+  <!-- Price Column. change 1 and 0 to false/true??? -->
   <ng-container matColumnDef="price">
     <th mat-header-cell *matHeaderCellDef> Pris </th>
     <td mat-cell *matCellDef="let element"> {{element.price | customCurrencyFilter}} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Funktioner </th>
+    <td mat-cell *matCellDef="let element"><button mat-flat-button type="button" style="background-color: red" color="primary" (click)="deleteProduct(element.id)">Slet</button></td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

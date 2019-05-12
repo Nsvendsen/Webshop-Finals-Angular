@@ -13,7 +13,7 @@ import { Product } from 'src/app/entities/product';
 })
 export class AdminViewProductListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'isActive', 'category', 'price']; //Sets columns in this order. FIX to match product instead of item object
+  displayedColumns: string[] = ['id', 'name', 'isActive', 'category', 'price', 'actions']; //Sets columns in this order. FIX to match product instead of item object
   products: Product[];  
   isProcessing: boolean;
 
@@ -34,5 +34,13 @@ export class AdminViewProductListComponent implements OnInit {
       // this.isAdmin = data.isAdmin;
       this.isProcessing = data.isProcessing; 
     });
+  }
+
+  deleteProduct(productId: any){
+    let conf = confirm("Er du sikker på at du vil slette produktet?");
+    if(conf){
+      console.log("ProductId deleted: " + productId);
+      this.productsActions.deleteProduct(productId);
+    }
   }
 }
