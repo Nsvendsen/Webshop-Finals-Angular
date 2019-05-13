@@ -16,10 +16,10 @@ export class Product {
 }
 
 export class ProductVariation {
-    id: number;
+    id: number; //String?
     inStock: number;
     sku: string;
     size?: string;
 
-    productId: number;
+    productId?: number; //Does this have to be optional?
 }

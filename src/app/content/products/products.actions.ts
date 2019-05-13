@@ -22,6 +22,9 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
   static GET_ALL_PRODUCTS: string = 'GET_ALL_PRODUCTS';
   static GET_ALL_PRODUCTS_SUCCESS: string = 'GET_ALL_PRODUCTS_SUCCESS';
   static GET_ALL_PRODUCTS_FAILURE: string = 'GET_ALL_PRODUCTS_FAILURE';
+  static GET_ONE_PRODUCT: string = 'GET_ONE_PRODUCT';
+  // static GET_ONE_PRODUCT_SUCCESS: string = 'GET_ONE_PRODUCT_SUCCESS';
+  // static GET_ONE_PRODUCT_FAILURE: string = 'GET_ONE_PRODUCT_FAILURE';
 
   createProduct(product: Product): void {
     //Sets isProcessing to true(spinner)
@@ -96,5 +99,9 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
       });
     });
     return false;
+  }
+
+  getOneProduct(id: any){
+
   }
 }

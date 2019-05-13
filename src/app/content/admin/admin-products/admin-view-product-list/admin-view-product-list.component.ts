@@ -27,6 +27,7 @@ export class AdminViewProductListComponent implements OnInit {
     //Redux implemented
     this.productsActions.getAllProducts(); //Dispatch action
     this.ngRedux.select(x => x.products).subscribe((data) => {
+      console.log(data.allProducts);
       this.dataSource.data = data.allProducts;
       this.products = data.allProducts;
       // console.log(this.products); //Remove later
