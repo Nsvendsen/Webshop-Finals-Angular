@@ -7,7 +7,7 @@ export class Product {
     price: number;
     discountPercent?: number;
     dateTimeCreated?: Date;
-    dateTimeEdited?: Date;
+    dateTimeUpdated?: Date;
     activeFromDate?: Date;
     expirationDate?: Date;
 

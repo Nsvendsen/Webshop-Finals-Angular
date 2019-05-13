@@ -75,5 +75,10 @@
       Beskrivelse skal udfyldes
   </div>
 
-  <button mat-flat-button type="submit" color="primary">Registrer</button>
+  <button mat-flat-button type="submit" color="primary">Gem</button>
 </form>
+
+<!-- Showing that product is loading -->
+<div *ngIf="isProcessing && !isCreatingProduct">
+    <mat-spinner></mat-spinner>
+</div>
