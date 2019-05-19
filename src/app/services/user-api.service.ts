@@ -11,7 +11,8 @@ export class UserApiService {
   constructor(private http: HttpClient) { }
 
   login(loginInfo){
-    return this.http.post(environment.apiUrl + "/user/login.php", loginInfo);
+    // return this.http.post(environment.apiUrl + "/user/login.php", loginInfo);
+    return this.http.post(environment.apiUrl + "/login.php", loginInfo);
   }
 
   getAllUsers(){

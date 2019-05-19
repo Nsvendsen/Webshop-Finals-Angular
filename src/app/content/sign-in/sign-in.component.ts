@@ -29,6 +29,7 @@ export class SignInComponent implements OnInit {
       const password: string = loginForm.value.password as string;
       var loginInformation = {email: email, password: password}; //Make json object to send to backend.
       this.userActions.login(loginInformation);
+
     } else
       // alert("invalid");
       console.log(loginForm);

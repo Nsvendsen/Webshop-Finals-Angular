@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../../store';
-import { Product } from 'src/app/entities/product';
 import { UserApiService } from 'src/app/services/user-api.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/entities/user';
 
 @Injectable({ providedIn: 'root'})
 
@@ -10,7 +12,7 @@ import { UserApiService } from 'src/app/services/user-api.service';
 export class UserActions {
 
 // We depencency inject the redux library.
-constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserApiService) {} 
+constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserApiService, private authService: AuthService, private router: Router) {} 
 
   // This gives a strongly typed way to call an action.
 //   static ADD_PRODUCT_TO_BASKET: string = 'ADD_PRODUCT_TO_BASKET'; 
@@ -20,14 +22,16 @@ constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserAp
     login(loginInformation): any {
         this.userApiService.login(loginInformation).subscribe(response => {
             console.log(response);
-            this.ngRedux.dispatch({
+            this.ngRedux.dispatch({ //Save user in redux store for later use.
                 type: UserActions.LOGIN,
-                payload: loginInformation
+                payload: response //Response is a user object
             });
-            // this.authService.login().subscribe(result => {
-            //   console.log("Logged in as user");
-            //   this.router.navigate(['/portal']);
-            // }); //Subscribe!
+
+            var user = response as User;
+            this.authService.login(user.role).subscribe(result => { //Allow access in authguard.
+                console.log("Logged in as user");
+                this.router.navigate(['/']);
+            }); //Allow access if credentials was found in the database.
         }, error => {
             console.log("Error!", error);
             //If web service fails.

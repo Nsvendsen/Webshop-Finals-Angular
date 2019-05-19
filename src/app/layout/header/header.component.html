@@ -4,19 +4,16 @@
     <button mat-stroked-button routerLink="products" color="primary">Produkter</button>
   </div>
 
-  <!-- *ngIf="!loggedIn" -->
-  <div >
+  <div *ngIf="!isLoggedIn">
     <button mat-stroked-button routerLink="signup" color="primary">Registrer</button>
     <button mat-stroked-button routerLink="signin" color="primary">Log Ind</button>
   </div>
 
-  <!-- *ngIf="isAdmin" -->
-  <div >
+  <div *ngIf="isAdmin">
     <button mat-stroked-button routerLink="admin" color="primary">Kontrolpanel</button>
   </div>
 
-  <!-- *ngIf="loggedIn" -->
-  <div >
+  <div *ngIf="isLoggedIn">
       <button mat-stroked-button routerLink="profile/myprofile" color="primary">Min Profil</button>
       <!-- <div class="welcome-message">
         <p>Logget ind med {{loggedInUser.role | lowercase}}: {{loggedInUser.username}}</p>

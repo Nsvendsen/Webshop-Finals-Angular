@@ -9,6 +9,7 @@ export class User {
     confirmedEmail: boolean;
     password: string;
     gender: boolean; //True is male False is female.
+    role?: string; //maybe remove ?
 
     //Relation to payment info
     //Relation to orders?

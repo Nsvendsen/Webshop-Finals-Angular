@@ -21,6 +21,7 @@ import { AdminProductVariationsComponent } from './content/admin/admin-products/
 import { AdminViewProductVariationsComponent } from './content/admin/admin-products/admin-product-variations/admin-view-product-variations/admin-view-product-variations.component';
 import { CreateOrEditProductVariationComponent } from './content/admin/admin-products/admin-product-variations/create-or-edit-product-variation/create-or-edit-product-variation.component';
 import { BasketComponent } from './content/basket/basket.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   // {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -31,7 +32,7 @@ const routes: Routes = [
     {path: 'signup', component: SignUpComponent},
     {path: 'signin', component: SignInComponent},
 
-    {path: 'profile', component: ProfileComponent, children: [ //canActivate: [AuthGuard],
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [ 
       {path: 'myprofile', component: MyProfileComponent}
     ]},
 
@@ -42,7 +43,7 @@ const routes: Routes = [
       {path: '', component: ViewProductListComponent}
     ]},
   
-    {path: 'admin', component: AdminComponent, children: [ //canActivate: [AuthGuard],
+    {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}, children: [ 
       {path: 'products', component: AdminProductsComponent, children: [
         {path: 'new', component: CreateOrEditProductComponent},
         {path: 'edit/:product-id', component: CreateOrEditProductComponent},
