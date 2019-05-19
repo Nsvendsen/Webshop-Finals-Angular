@@ -82,33 +82,7 @@ export class CreateOrEditProductComponent implements OnInit {
     }
     else {
       this.isCreatingProduct = true;
-      //Reactive form validation for CREATE
-      // this.productForm = this.fb.group(
-      //   {
-      //     //Not included in validion. start
-      //     //We do this to avoid errors when editing a product.
-      //     id: [''],
-      //     isActive: [''], 
-      //     dateTimeCreated: [''],
-      //     dateTimeUpdated: [''],
-      //     activeFromDate: [''],
-      //     expirationDate: [''],
-      //     discountPercent: [''],
-      //     productVariations: [''],
-      //     //Not included in validation. end
-
-      //     name: ['', [Validators.required, Validators.maxLength(100)]],
-      //     price: ['', Validators.required],
-      //     description: ['', Validators.required],
-      //     category: ['', Validators.required],
-
-      //     //ProductVariation validation
-      //     inStock: ['', Validators.required],
-      //     sku: ['', Validators.required],
-      //     size: ['']
-      //   }
-      // );
-
+      //Add reactive form validation form controls for CREATE
       // https://stackoverflow.com/questions/47573797/dynamically-addcontrol-to-formgroup-angular-5
       this.productForm.addControl('inStock', new FormControl('', Validators.required));
       this.productForm.addControl('sku', new FormControl('', Validators.required));
@@ -140,6 +114,7 @@ export class CreateOrEditProductComponent implements OnInit {
     productVariation.sku = productForm.value.sku;
     productVariation.size = productForm.value.size;
     product.productVariations.push(productVariation);
+    product.price *= 100;//Multiply price by 100 to store price in oere instead of kroner.
     console.log(product);
 
     //Format date

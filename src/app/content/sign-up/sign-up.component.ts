@@ -27,17 +27,19 @@ export class SignUpComponent implements OnInit {
         address: ['',[Validators.required]],
         zipCode: ['',[Validators.required]],
         email: ['',[Validators.required, Validators.email]],
-        confirmedEmail: ['',[Validators.required, Validators.email]],
-        gender: ['',[Validators.required]],
-      } , {
-        validator: MustMatch('email', 'confirmedEmail') // https://jasonwatmore.com/post/2018/11/07/angular-7-reactive-forms-validation-example. Burde password ikke tilføjes?
-      }
+        password: ['',[Validators.required, Validators.minLength(5)]],
+        // Confirm password field?
+        gender: ['',[Validators.required]]
+      } 
+      // , {
+      //   validator: MustMatch('email', 'confirmedEmail') // https://jasonwatmore.com/post/2018/11/07/angular-7-reactive-forms-validation-example. Burde password ikke tilføjes?
+      // }
     );
   }
 
   onSubmit(userForm){
     if (userForm.valid){
-      console.log("user created with values" + this.userBeingCreated)
+      console.log("user created with values" + this.userBeingCreated);
       if(this.userBeingCreated){
         this.createUser(userForm);
       }
@@ -46,7 +48,7 @@ export class SignUpComponent implements OnInit {
       }
     }
     else{
-      alert("invalid form")
+      alert("invalid form");
     }
   }
 

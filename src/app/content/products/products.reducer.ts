@@ -45,6 +45,12 @@ export function productsReducer(state: ProductsState = INITIAL_STATE, action:any
             return tassign(state, { isProcessing: false, allProducts: [...action.payload]})
         case ProductsActions.GET_ALL_PRODUCTS_FAILURE:
             return tassign(state, { isProcessing: false })
+
+        //Variations.
+        // case ProductsActions.DELETE_PRODUCT_VARIATION:
+            // var indexOfProduct = state.allProducts.findIndex(product => product.id === action.payload);
+            // return tassign(state, { allProducts: state.allProducts.filter(product => product.id !== action.payload) });
+            
         default:
             return state;
     }

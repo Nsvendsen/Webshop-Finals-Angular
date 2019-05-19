@@ -26,6 +26,9 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
   // static GET_ONE_PRODUCT_SUCCESS: string = 'GET_ONE_PRODUCT_SUCCESS';
   // static GET_ONE_PRODUCT_FAILURE: string = 'GET_ONE_PRODUCT_FAILURE';
 
+  //Variations
+  static DELETE_PRODUCT_VARIATION: string = 'DELETE_PRODUCT_VARIATION';
+
   createProduct(product: Product): void {
     //Sets isProcessing to true(spinner)
     this.ngRedux.dispatch({

@@ -7,7 +7,9 @@ export class User {
     zipCode: number;
     email: string;
     confirmedEmail: boolean;
+    password: string;
     gender: boolean; //True is male False is female.
 
     //Relation to payment info
+    //Relation to orders?
 }

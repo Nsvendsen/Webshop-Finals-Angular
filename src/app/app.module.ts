@@ -47,6 +47,7 @@ import { AdminViewProductVariationsComponent } from './content/admin/admin-produ
 import { CreateOrEditProductVariationComponent } from './content/admin/admin-products/admin-product-variations/create-or-edit-product-variation/create-or-edit-product-variation.component';
 import { CustomCurrencyFilter, YesNoBooleanFilter, GenderFilter } from './content/products/products.filter';
 import { BasketComponent } from './content/basket/basket.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { BasketComponent } from './content/basket/basket.component';
     MatProgressSpinnerModule,
     NgReduxModule, NgReduxRouterModule.forRoot(),
     MatDividerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

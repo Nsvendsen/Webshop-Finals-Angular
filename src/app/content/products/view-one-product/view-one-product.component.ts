@@ -62,6 +62,11 @@ export class ViewOneProductComponent implements OnInit {
     let filteredVariations = this.oneProduct.productVariations.filter(x => x.id == productVariationId); //Filter product variations in product.
     this.oneProduct.productVariations = filteredVariations; //Assign filtered array to product instance.
     this.basketActions.addToBasket(this.oneProduct); //Dispatch action with the changed product.
+
+    // window.dataLayer.push({'event': 'basketAdd', 'eventData': {
+    //   'product': product,
+    //   'user': user 
+    // });
   }
   // addToBasketClick(productVariationId: any){
 

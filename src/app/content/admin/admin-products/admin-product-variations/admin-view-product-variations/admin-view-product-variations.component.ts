@@ -16,7 +16,7 @@ import { ProductApiService } from 'src/app/services/product-api.service';
 export class AdminViewProductVariationsComponent implements OnInit {
 
   // VIEW VARIATIONS FOR ONE PRODUCT
-  displayedColumns: string[] = ['id', 'sku', 'inStock', 'size']; //Sets columns in this order.
+  displayedColumns: string[] = ['id', 'sku', 'inStock', 'size', 'actions']; //Sets columns in this order.
   product: Product;  
   isProcessing: boolean;
 
@@ -37,5 +37,8 @@ export class AdminViewProductVariationsComponent implements OnInit {
     });
   }
 
+  deleteProductVariation(productVariationId: any){
+    // this.productsActions
+  }
 }
 

@@ -5,6 +5,7 @@ import { ProductsActions } from 'src/app/content/products/products.actions';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Product } from 'src/app/entities/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-view-product-list',
@@ -21,7 +22,7 @@ export class AdminViewProductListComponent implements OnInit {
   dataSource = new MatTableDataSource<Product>(); //ITEM_DATA / this.products as param
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private ngRedux: NgRedux<IAppState>, private productsActions: ProductsActions) { }
+  constructor(private ngRedux: NgRedux<IAppState>, private productsActions: ProductsActions, private router: Router) { }
 
   ngOnInit() {
     //Redux implemented
@@ -43,5 +44,9 @@ export class AdminViewProductListComponent implements OnInit {
       console.log("ProductId deleted: " + productId);
       this.productsActions.deleteProduct(productId);
     }
+  }
+
+  viewProductVariations(productId: any){
+    this.router.navigate(['/admin/products/variations/' + productId]);
   }
 }
