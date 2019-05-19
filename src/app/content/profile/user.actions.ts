@@ -5,6 +5,7 @@ import { UserApiService } from 'src/app/services/user-api.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/entities/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root'})
 
@@ -12,7 +13,8 @@ import { User } from 'src/app/entities/user';
 export class UserActions {
 
 // We depencency inject the redux library.
-constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserApiService, private authService: AuthService, private router: Router) {} 
+constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserApiService, private authService: AuthService, 
+    private router: Router) {} 
 
   // This gives a strongly typed way to call an action.
 //   static ADD_PRODUCT_TO_BASKET: string = 'ADD_PRODUCT_TO_BASKET'; 

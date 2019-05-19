@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserApiService } from 'src/app/services/user-api.service';
 import { User } from 'src/app/entities/user';
 import { MustMatch } from './validators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class SignUpComponent implements OnInit {
   userForm;
   userBeingCreated: boolean = true;
   
-  constructor(private fb: FormBuilder, private router: Router, private userApiService: UserApiService) { }
+  constructor(private fb: FormBuilder, private router: Router, private userApiService: UserApiService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.userForm = this.fb.group(
@@ -56,11 +57,10 @@ export class SignUpComponent implements OnInit {
     let user = userForm.value as User;
     this.userApiService.addUser(user).subscribe((response: User) => {
       console.log(response);
+      this.openSnackBar('User was created successfully.','User'); //Display success message.
     }, error => {
       console.log("The following error was encountered:", error);
     });
-    
-    
   }
 
   updateUserProfile(userForm){
@@ -72,5 +72,10 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+        duration: 2000,
+    });
+  }
 }
 
