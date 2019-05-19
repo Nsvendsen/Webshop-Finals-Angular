@@ -3,6 +3,7 @@ import { NgRedux } from '@angular-redux/store';
 import { IAppState } from 'src/app/store';
 import { Product } from 'src/app/entities/product';
 import { BasketActions } from './basket.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basket',
@@ -12,7 +13,7 @@ import { BasketActions } from './basket.actions';
 export class BasketComponent implements OnInit {
   productsInBasket: Product[];
 
-  constructor(private ngRedux: NgRedux<IAppState>, private basketActions: BasketActions) { }
+  constructor(private ngRedux: NgRedux<IAppState>, private basketActions: BasketActions, private router: Router) { }
 
   ngOnInit() {
     this.ngRedux.select(x => x.basketProducts).subscribe((data) => {
@@ -23,5 +24,9 @@ export class BasketComponent implements OnInit {
 
   removeFromBasket(productId: any){
     this.basketActions.removeFromBasket(productId);
+  }
+
+  checkout(){
+    this.router.navigate(['/checkout']);
   }
 }

@@ -22,6 +22,11 @@ import { AdminViewProductVariationsComponent } from './content/admin/admin-produ
 import { CreateOrEditProductVariationComponent } from './content/admin/admin-products/admin-product-variations/create-or-edit-product-variation/create-or-edit-product-variation.component';
 import { BasketComponent } from './content/basket/basket.component';
 import { AuthGuard } from './auth/auth.guard';
+import { AdminOrdersComponent } from './content/admin/admin-orders/admin-orders.component';
+import { AdminViewOrderListComponent } from './content/admin/admin-orders/admin-view-order-list/admin-view-order-list.component';
+import { BasketCheckoutComponent } from './content/basket-checkout/basket-checkout.component';
+import { StepOnePaymentInfoComponent } from './content/basket-checkout/step-one-payment-info/step-one-payment-info.component';
+import { MyOrdersComponent } from './content/profile/my-orders/my-orders.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -33,10 +38,13 @@ const routes: Routes = [
     {path: 'signin', component: SignInComponent},
 
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [ 
-      {path: 'myprofile', component: MyProfileComponent}
+      {path: 'myprofile', component: MyProfileComponent},
+      {path: 'myorders', component: MyOrdersComponent}
     ]},
 
     {path: 'basket', component: BasketComponent},
+
+    {path: 'checkout', component: BasketCheckoutComponent, canActivate: [AuthGuard]}, //children: []
 
     {path: 'products', component: ProductsComponent, children: [
       {path: ':product-id', component: ViewOneProductComponent},
@@ -57,6 +65,9 @@ const routes: Routes = [
         {path: 'new', component: CreateOrEditProfileComponent},
         {path: 'edit/:profile-id', component: CreateOrEditProfileComponent},
         {path: 'list', component: AdminViewProfileListComponent}
+      ]},
+      {path: 'orders', component: AdminOrdersComponent, children: [
+        {path: 'list', component: AdminViewOrderListComponent}
       ]}
     ]}
   ]},

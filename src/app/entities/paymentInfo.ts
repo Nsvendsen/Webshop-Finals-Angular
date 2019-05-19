@@ -7,12 +7,11 @@ export class PaymentInfo {
     country: string;
     zipCode: number;
     email: string;
-    payment: string; //What is this?
     cardNumber: number;
     cardExpirationDate: string;
     cvcNumber: number;
 
-    // userId: number;
+    userId?: number;
     // user: User;
 
 }

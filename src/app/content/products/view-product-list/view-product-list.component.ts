@@ -25,7 +25,7 @@ export class ViewProductListComponent implements OnInit {
     });
   }
   navigate(product: Product) {
-    this.router.navigate(['/products/' + product.id])
+    this.router.navigate(['/products/' + product.id]);
   }
 
 }

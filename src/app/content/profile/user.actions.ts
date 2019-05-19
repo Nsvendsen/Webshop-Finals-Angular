@@ -18,6 +18,7 @@ constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserAp
 //   static ADD_PRODUCT_TO_BASKET: string = 'ADD_PRODUCT_TO_BASKET'; 
 //   static REMOVE_PRODUCT_FROM_BASKET: string = 'REMOVE_PRODUCT_FROM_BASKET'; 
     static LOGIN: string = 'LOGIN'; 
+    static CREATE_ORDER: string = 'CREATE_ORDER'; 
 
     login(loginInformation): any {
         this.userApiService.login(loginInformation).subscribe(response => {
@@ -36,6 +37,26 @@ constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserAp
             console.log("Error!", error);
             //If web service fails.
         });
+    }
+
+    //Places order.
+    createOrder(){
+        // this.userApiService.login(loginInformation).subscribe(response => {
+        //     console.log(response);
+        //     this.ngRedux.dispatch({ //Save user in redux store for later use.
+        //         type: UserActions.LOGIN,
+        //         payload: response //Response is a user object
+        //     });
+
+        //     var user = response as User;
+        //     this.authService.login(user.role).subscribe(result => { //Allow access in authguard.
+        //         console.log("Logged in as user");
+        //         this.router.navigate(['/']);
+        //     }); //Allow access if credentials was found in the database.
+        // }, error => {
+        //     console.log("Error!", error);
+        //     //If web service fails.
+        // });
     }
   
 }

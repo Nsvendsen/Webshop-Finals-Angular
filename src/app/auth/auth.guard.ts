@@ -1,18 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-// import { Observable } from 'rxjs';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthGuard implements CanActivate {
-//   canActivate(
-//     next: ActivatedRouteSnapshot,
-//     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-//     return true;
-//   }
-// }
-
 import { Injectable }       from '@angular/core';
 import {
   CanActivate, Router,
@@ -32,7 +17,7 @@ export class AuthGuard implements CanActivate {
     let url: string = state.url;
 
     var hasAccess = this.checkLogin(url);
-    if(route.data){
+    if(route.data && route.data.expectedRole){
       console.log(route.data);
       const expectedRole = route.data.expectedRole;
       if(this.authService.userRole !== expectedRole){

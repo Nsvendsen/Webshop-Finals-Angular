@@ -48,6 +48,12 @@ import { CreateOrEditProductVariationComponent } from './content/admin/admin-pro
 import { CustomCurrencyFilter, YesNoBooleanFilter, GenderFilter } from './content/products/products.filter';
 import { BasketComponent } from './content/basket/basket.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AdminOrdersComponent } from './content/admin/admin-orders/admin-orders.component';
+import { AdminViewOrderListComponent } from './content/admin/admin-orders/admin-view-order-list/admin-view-order-list.component';
+import { BasketCheckoutComponent } from './content/basket-checkout/basket-checkout.component';
+import { StepOnePaymentInfoComponent } from './content/basket-checkout/step-one-payment-info/step-one-payment-info.component';
+import { StepTwoFinalizeComponent } from './content/basket-checkout/step-two-finalize/step-two-finalize.component';
+import { MyOrdersComponent } from './content/profile/my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +84,13 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CustomCurrencyFilter,
     YesNoBooleanFilter,
     GenderFilter,
-    BasketComponent
+    BasketComponent,
+    AdminOrdersComponent,
+    AdminViewOrderListComponent,
+    BasketCheckoutComponent,
+    StepOnePaymentInfoComponent,
+    StepTwoFinalizeComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,

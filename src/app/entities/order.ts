@@ -15,7 +15,7 @@ export class Order {
     // userId: number;
 
     //Relation to OrderLines
-    // orderLines: OrderLine[];
+    orderLines: OrderLine[];
 
     //Relation to paymentInfo
     // paymentInfo: PaymentInfo;
