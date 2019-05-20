@@ -1,6 +1,7 @@
 <p *ngIf="checkoutStep === 1">
   Trin {{checkoutStep}}
-  <app-step-one-payment-info></app-step-one-payment-info>
+  <!-- Data from child to parent -->
+  <app-step-one-payment-info (changeStep)="childEventChangeStep($event)"></app-step-one-payment-info>
 </p>
 
 <p *ngIf="checkoutStep === 2">
@@ -8,3 +9,5 @@
   
   <app-step-two-finalize></app-step-two-finalize>
 </p>
+
+<!-- <router-outlet></router-outlet> -->

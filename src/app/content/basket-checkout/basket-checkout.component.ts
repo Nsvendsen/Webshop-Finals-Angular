@@ -14,4 +14,7 @@ export class BasketCheckoutComponent implements OnInit {
   ngOnInit() {
   }
 
+  childEventChangeStep(step){
+    this.checkoutStep = step;
+  }
 }

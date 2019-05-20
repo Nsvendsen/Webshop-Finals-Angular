@@ -27,6 +27,7 @@ import { AdminViewOrderListComponent } from './content/admin/admin-orders/admin-
 import { BasketCheckoutComponent } from './content/basket-checkout/basket-checkout.component';
 import { StepOnePaymentInfoComponent } from './content/basket-checkout/step-one-payment-info/step-one-payment-info.component';
 import { MyOrdersComponent } from './content/profile/my-orders/my-orders.component';
+import { StepTwoFinalizeComponent } from './content/basket-checkout/step-two-finalize/step-two-finalize.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -44,7 +45,10 @@ const routes: Routes = [
 
     {path: 'basket', component: BasketComponent},
 
-    {path: 'checkout', component: BasketCheckoutComponent, canActivate: [AuthGuard]}, //children: []
+    {path: 'checkout', component: BasketCheckoutComponent, canActivate: [AuthGuard]}, //, children: [
+    //   {path: 'one', component: StepOnePaymentInfoComponent},
+    //   {path: 'two', component: StepTwoFinalizeComponent}
+    // ]}, //Alternatively don't use routing, but ngIf
 
     {path: 'products', component: ProductsComponent, children: [
       {path: ':product-id', component: ViewOneProductComponent},

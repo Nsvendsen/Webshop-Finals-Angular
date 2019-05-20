@@ -1,21 +1,17 @@
-import { Item } from './item';
-import { Order } from './order';
-
-// Should we use DTOs?
-// Why is orderline saved when added to cart?
-// Orderline is saved to check item stock price etc??
 export class OrderLine {
+    // id: number;
+    // price: number;
+    // discountPercent: number;
+    // dateTimeCreated?: Date;
+    // // refunded: boolean;
+    // // refundedAt: Date;
+
+    //This entity is made from 3 tables in the database: order_lines, product_variations and products.
     id: number;
-    addedToCart: Date;
-    refunded: boolean;
-    refundedAt: Date;
-    // price: number; //Get price from item
+    price: number;
+    sku: string;
+    size?: string;
+    name: string; 
 
-    // Relation to Item
-    // item: Item;
-    // itemId: number;
-
-    // Relation to Order
-    // order: Order;
     // orderId: number;
 }

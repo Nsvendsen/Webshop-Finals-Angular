@@ -14,6 +14,7 @@ constructor (private ngRedux: NgRedux<IAppState>) {}
   // This gives a strongly typed way to call an action.
   static ADD_TO_BASKET: string = 'ADD_TO_BASKET'; 
   static REMOVE_FROM_BASKET: string = 'REMOVE_FROM_BASKET'; 
+  static CLEAR_BASKET: string = 'CLEAR_BASKET'; 
 
   addToBasket(product: Product): void { 
     this.ngRedux.dispatch({
@@ -26,6 +27,13 @@ constructor (private ngRedux: NgRedux<IAppState>) {}
     this.ngRedux.dispatch({
         type: BasketActions.REMOVE_FROM_BASKET,
         payload: id
+    });
+  }
+
+  clearBasket(): void { 
+    this.ngRedux.dispatch({
+        type: BasketActions.CLEAR_BASKET,
+        //NO PAYLOAD
     });
   }
 }

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyOrdersComponent implements OnInit {
 
+  // displayedColumns: string[] = ['id', 'name', 'isActive', 'category', 'price', 'actions']; //Sets columns in this order. 
   constructor() { }
 
   ngOnInit() {

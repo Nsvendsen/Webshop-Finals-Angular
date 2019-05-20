@@ -13,17 +13,17 @@ export function productsReducer(state: ProductsState = INITIAL_STATE, action:any
     switch (action.type) {
         //Create product was made into 3 cases to make process spinner work
         case ProductsActions.CREATE_PRODUCT: //action.payload = Item
-            return tassign(state, { isProcessing: true })
+            return tassign(state, { isProcessing: true });
         //If it succeeds   
         case ProductsActions.CREATE_PRODUCT_SUCCESS: //action.payload = Item
             // Copies products array and adds the new Item object to the copy
-            return tassign(state, { isProcessing: false , allProducts: [...state.allProducts, action.payload]})
+            return tassign(state, { isProcessing: false , allProducts: [...state.allProducts, action.payload]});
         //If webservice fails
         case ProductsActions.CREATE_PRODUCT_FAILURE:
-            return tassign(state, { isProcessing: false })
+            return tassign(state, { isProcessing: false });
 
         case ProductsActions.UPDATE_PRODUCT: //Not working. //action.payload = Item (updated Item)
-            let index = state.allProducts.findIndex(product => product.id == action.payload.id)
+            let index = state.allProducts.findIndex(product => product.id == action.payload.id);
 
             return tassign(state, {allProducts: [
               ...state.allProducts.slice(0, index),
@@ -39,12 +39,12 @@ export function productsReducer(state: ProductsState = INITIAL_STATE, action:any
 
         //Get all products was made into 3 cases to make process spinner work
         case ProductsActions.GET_ALL_PRODUCTS: //action.payload = Sitter[] (all sitters from API)
-            return tassign(state, { isProcessing: true })
+            return tassign(state, { isProcessing: true });
         case ProductsActions.GET_ALL_PRODUCTS_SUCCESS:
             // return tassign(state, { isProcessing: false, allProducts: [...state.allProducts, ...action.payload]})
-            return tassign(state, { isProcessing: false, allProducts: [...action.payload]})
+            return tassign(state, { isProcessing: false, allProducts: [...action.payload]});
         case ProductsActions.GET_ALL_PRODUCTS_FAILURE:
-            return tassign(state, { isProcessing: false })
+            return tassign(state, { isProcessing: false });
 
         //Variations.
         // case ProductsActions.DELETE_PRODUCT_VARIATION:

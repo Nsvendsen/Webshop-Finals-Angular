@@ -10,7 +10,8 @@ import { userReducer } from './content/profile/user.reducer';
 
 export class UserState {
     loggedInUser: User;
-    // basket: Order; //Order contains orderlines
+    // productsInBasket: Product[];
+    orders: Order[];
     isAdmin: boolean;
 }
 
