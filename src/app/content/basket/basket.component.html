@@ -1,7 +1,7 @@
 <h3 *ngIf="productsInBasket.length != 0">Din indkøbskurv:</h3>
 <h3 *ngIf="productsInBasket.length == 0">Din indkøbskurv er tom</h3>
 
-<table *ngFor="let oneProduct of productsInBasket">
+<table *ngFor="let oneProduct of productsInBasket" style="width: 100%">
   <thead>
       <tr>
           <th></th>
@@ -15,7 +15,7 @@
             <img width="50" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw9b9d7dfa/images/highres/8435189817149-2.jpg">
             <img width="50" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw2f04d014/images/highres/8435189817149-1.jpg"></td>
           <td><img width="150" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw58b5dbb6/images/highres/8435189817149.jpg"></td>
-          <td>
+          <td style="width: 50%">
             {{oneProduct.name}}<br>
             {{oneProduct.description}}<br>
             {{oneProduct.price | customCurrencyFilter}}<br>
