@@ -1,26 +1,16 @@
-<div class="navigation">
-  <div>
-    <button mat-stroked-button routerLink="" color="primary">Hjem</button>
-    <button mat-stroked-button routerLink="products" color="primary">Produkter</button>
-  </div>
-
-  <div *ngIf="!isLoggedIn">
-    <button mat-stroked-button routerLink="signup" color="primary">Registrer</button>
-    <button mat-stroked-button routerLink="signin" color="primary">Log Ind</button>
-  </div>
-
-  <div *ngIf="isAdmin">
-    <button mat-stroked-button routerLink="admin" color="primary">Kontrolpanel</button>
-  </div>
-
-  <div *ngIf="isLoggedIn">
-      <button mat-stroked-button routerLink="profile/myprofile" color="primary">Min Profil</button>
-      <!-- <div class="welcome-message">
-        <p>Logget ind med {{loggedInUser.role | lowercase}}: {{loggedInUser.username}}</p>
-      </div> -->
-  </div>
-
-  <div>
-      <button mat-stroked-button routerLink="basket" color="primary">Kurv<i class="material-icons">shopping_cart</i></button>
+<ul class="topnav">
+  <li><a class="active-menu" href="#" routerLink="/"><span style="font-size: 19px; font-weight: 900;">Dshop</span></a></li>
+  <li><a href="#" routerLink="products">produkter</a></li>
+  <li><a href="#" routerLink="basket"><i class="material-icons">shopping_cart</i></a></li>
+  <li class="right"><a href="#" *ngIf="isAdmin" routerLink="admin">Kontrolpanel</a></li>
+  <li class="right"><a href="#" *ngIf="isLoggedIn" routerLink="profile/myprofile">Min Profil</a></li>
+  <li class="right"><a href="#" *ngIf="!isLoggedIn" routerLink="signup">Registrer</a></li>
+  <li class="right"><a href="#" *ngIf="!isLoggedIn" routerLink="signin">Log ind</a></li>
+</ul>
+ 
+<div class="hero-image" *ngIf="showBanner">
+  <div class="hero-text">
+    <h1 style="font-size:50px"><span style="color: #00da9b;">20%</span> på alt den første uge</h1>
+    <p>Velkommen til Dshop Danmarks nye webshop for kvinde tøj</p>
   </div>
 </div>

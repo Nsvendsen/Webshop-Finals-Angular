@@ -3,6 +3,7 @@ import { NgRedux } from '@angular-redux/store';
 import { IAppState } from 'src/app/store';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/entities/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,9 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
 
-  constructor(private authService: AuthService, private ngRedux: NgRedux<IAppState>) { }
+  showBanner: boolean = false;
+
+  constructor(private authService: AuthService, private ngRedux: NgRedux<IAppState>, private router: Router) { }
 
   ngOnInit() {
     this.ngRedux.select(x => x.user).subscribe((data) => {
@@ -33,6 +36,20 @@ export class HeaderComponent implements OnInit {
     // if(this.authService.userRole === 'admin') {
     //   this.isAdmin = true;
     // }
+    this.router.events.subscribe((val) => { //Perhaps fires 3 times because of 3 states.
+      var path = this.router.url;
+      if(path == '/'){
+        this.showBanner = true;
+      }
+      else {
+        this.showBanner = false;
+      }
+      console.log(path);
+    });
   }
 
+
+  
 }
+
+
