@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Order } from 'src/app/entities/order';
 
 @Component({
   selector: 'app-my-orders',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyOrdersComponent implements OnInit {
 
-  // displayedColumns: string[] = ['id', 'name', 'isActive', 'category', 'price', 'actions']; //Sets columns in this order. 
+  displayedColumns: string[] = ['id', 'dateTimeCreated', 'orderState', 'priceTotal', 'actions']; //Sets columns in this order.
+  dataSource = new MatTableDataSource<Order>(); 
+   
   constructor() { }
 
   ngOnInit() {
   }
 
+  viewOrderLines(orderId: any){
+
+  }
 }

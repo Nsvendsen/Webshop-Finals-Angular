@@ -6,8 +6,10 @@ import { Product } from "./product";
 export class Order {
     id: number;
     orderState: string;
+
+    // priceTotal?: number; 
+    // dateTimeCreated?: Date;
     
-    // totalPrice: number;
     // paidAt: Date;
 
 

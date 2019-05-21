@@ -34,7 +34,7 @@ const routes: Routes = [
 
   // Subrouting children
   {path: '', component: ContentComponent, children: [
-    {path: '', component: IndexPageComponent},
+    // {path: '', component: IndexPageComponent},
     {path: 'signup', component: SignUpComponent},
     {path: 'signin', component: SignInComponent},
 
@@ -49,6 +49,8 @@ const routes: Routes = [
     //   {path: 'one', component: StepOnePaymentInfoComponent},
     //   {path: 'two', component: StepTwoFinalizeComponent}
     // ]}, //Alternatively don't use routing, but ngIf
+
+    {path: '', component: ViewProductListComponent}, //Current index page
 
     {path: 'products', component: ProductsComponent, children: [
       {path: ':product-id', component: ViewOneProductComponent},

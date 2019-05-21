@@ -1,10 +1,10 @@
-<div *ngIf="oneProduct"> <!-- If statement is to avoid error. Page loads before response from webservice comes back -->
-<table>
+<div *ngIf="oneProduct" style="width: 100%;"> <!-- If statement is to avoid error. Page loads before response from webservice comes back -->
+<table style="width: 100%;">
 <thead>
     <tr>
         <th></th>
         <th></th>
-        <th>Product Info</th>
+        <th>Produktinformation</th>
     </tr>
 </thead>
     <tr>
@@ -13,10 +13,15 @@
           <img width="50" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw9b9d7dfa/images/highres/8435189817149-2.jpg">
           <img width="50" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw2f04d014/images/highres/8435189817149-1.jpg"></td>
         <td><img width="150" src="https://www.magasin.dk/on/demandware.static/-/Sites-mdn-master-catalog/default/dw58b5dbb6/images/highres/8435189817149.jpg"></td>
-        <td>
+        <td style="width: 50%">
+          <!-- Use p tags -->
           {{oneProduct.name}}<br>
           {{oneProduct.description}}<br>
-          {{oneProduct.price | customCurrencyFilter}}
+          {{oneProduct.price | customCurrencyFilter}}<br>
+          <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
           <form novalidate [formGroup]="basketForm" (ngSubmit)="onSubmit(basketForm)">
             <!-- *ngIf="oneProduct.category == 'sko'" -->
             <mat-form-field>
