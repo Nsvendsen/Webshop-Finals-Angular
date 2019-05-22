@@ -11,7 +11,7 @@ export function basketReducer(state: BasketState = INITIAL_STATE, action:any) {
     switch (action.type) {
         case BasketActions.ADD_TO_BASKET: //action.payload = Product
             // Copies products array and adds the new Product object to the copy
-            return tassign(state, { productsInBasket: [...state.productsInBasket, action.payload]})
+            return tassign(state, { productsInBasket: [...state.productsInBasket, action.payload]});
             
         // case BasketActions.REMOVE_FROM_BASKET: //action.payload = string (id of Product)
             // return tassign(state, { productsInBasket: state.productsInBasket.filter(product => product.id !== action.payload) });

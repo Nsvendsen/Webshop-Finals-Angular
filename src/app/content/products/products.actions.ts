@@ -85,13 +85,12 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
     });
 
     this.productApiService.getAllProducts().subscribe((responseFromApi: any[]) => { 
-    //   const myData = responseFromApi.filter(x => x.isActive === 1); // 1 or true?
       console.log(responseFromApi);
 
       //If it was a success
       this.ngRedux.dispatch({
         type: ProductsActions.GET_ALL_PRODUCTS_SUCCESS,
-        payload: responseFromApi //myData filter the data? 
+        payload: responseFromApi
       });
     }, error => {
       console.log("Error! ", error);

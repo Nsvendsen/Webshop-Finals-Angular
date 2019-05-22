@@ -68,7 +68,4 @@ export class ViewOneProductComponent implements OnInit {
     //   'user': user 
     // });
   }
-  // addToBasketClick(productVariationId: any){
-
-  // }
 }

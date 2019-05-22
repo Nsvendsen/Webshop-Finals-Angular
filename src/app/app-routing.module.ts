@@ -45,10 +45,7 @@ const routes: Routes = [
 
     {path: 'basket', component: BasketComponent},
 
-    {path: 'checkout', component: BasketCheckoutComponent, canActivate: [AuthGuard]}, //, children: [
-    //   {path: 'one', component: StepOnePaymentInfoComponent},
-    //   {path: 'two', component: StepTwoFinalizeComponent}
-    // ]}, //Alternatively don't use routing, but ngIf
+    {path: 'checkout', component: BasketCheckoutComponent, canActivate: [AuthGuard]}, 
 
     {path: '', component: ViewProductListComponent}, //Current index page
 

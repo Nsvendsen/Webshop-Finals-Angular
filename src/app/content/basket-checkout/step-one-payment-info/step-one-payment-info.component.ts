@@ -22,12 +22,13 @@ export class StepOnePaymentInfoComponent implements OnInit {
   paymentForm;
   productsInBasket: Product[];
   loggedInUser: User;
-  @Output() changeStep: EventEmitter<any> = new EventEmitter;//Data from child to parent
+  @Output() changeStep: EventEmitter<any> = new EventEmitter; //Data from child to parent component.
 
-  constructor(private fb: FormBuilder, private userActions: UserActions, private ngRedux: NgRedux<IAppState>, private basketActions: BasketActions) { }
+  constructor(private fb: FormBuilder, private userActions: UserActions, private ngRedux: NgRedux<IAppState>, 
+    private basketActions: BasketActions) { }
 
   ngOnInit() {
-    //Reactive form validation for EDIT
+    //Reactive form validation.
     this.paymentForm = this.fb.group(
       {
         firstName: ['', Validators.required],
@@ -64,7 +65,6 @@ export class StepOnePaymentInfoComponent implements OnInit {
     console.log(paymentForm) //Remove later
   }
   
-  //Make paymentinfo a one to one relation with order? Never reuse paymentinfo?
   placeOrder(paymentForm){
     let paymentInfo = paymentForm.value as PaymentInfo;
     paymentInfo.userId = this.loggedInUser.id;
@@ -79,6 +79,5 @@ export class StepOnePaymentInfoComponent implements OnInit {
 
     this.userActions.createOrder(theOrder);
     this.changeStep.emit(2); //Display step 2 in parent component.
-    //Emit number and increment checkoutStep variable? Perhaps use another approach. routing?
   }
 }

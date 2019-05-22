@@ -38,7 +38,7 @@ export function productsReducer(state: ProductsState = INITIAL_STATE, action:any
         //     return tassign(state, { isAdmin: action.payload })
 
         //Get all products was made into 3 cases to make process spinner work
-        case ProductsActions.GET_ALL_PRODUCTS: //action.payload = Sitter[] (all sitters from API)
+        case ProductsActions.GET_ALL_PRODUCTS: //action.payload = Product[] (all products from API)
             return tassign(state, { isProcessing: true });
         case ProductsActions.GET_ALL_PRODUCTS_SUCCESS:
             // return tassign(state, { isProcessing: false, allProducts: [...state.allProducts, ...action.payload]})
