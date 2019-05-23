@@ -1,42 +1,44 @@
+<div id="formCenter">
 
+        <h1 style="text-align: center;">Registrer dig her</h1>
 
-<form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
-    <mat-form-field class="example-full-width">
+<form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)" style="width: 100%; text-align: center;">
+    <mat-form-field class="example-full-width" style="width: 100%; text-align: center;">
         <input matInput type="text" id="firstNameId" placeholder="Fornavn" formControlName="firstName">
     </mat-form-field><br>
     <div *ngIf='userForm.controls.firstName.touched && userForm.controls.firstName.errors?.required'> 
         Fornavn skal udfyldes
     </div>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" style="width: 100%; text-align: center;">
         <input matInput type="text" id="lastNameId" placeholder="Efternavn" formControlName="lastName">
     </mat-form-field><br>
     <div *ngIf='userForm.controls.lastName.touched && userForm.controls.lastName.errors?.required'> 
         Efternavn skal udfyldes
     </div>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" style="width: 100%; text-align: center;">
         <input matInput type="text" id="addressId" placeholder="Vej, nummer, etage og by" formControlName="address">
     </mat-form-field><br>
     <div *ngIf='userForm.controls.address.touched && userForm.controls.address.errors?.required'> 
         Der skal angives en addresse
     </div>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" style="width: 100%; text-align: center;">
         <input matInput type="number" id="zipCodeId" placeholder="Postnummer" formControlName="zipCode">
     </mat-form-field><br>
     <div *ngIf='userForm.controls.zipCode.touched && userForm.controls.zipCode.errors?.required'> 
         Der skal angives et postnummer
     </div>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" style="width: 100%; text-align: center;">
         <input matInput type="email" id="emailId" placeholder="Email" formControlName="email">
     </mat-form-field><br>
     <div *ngIf='userForm.controls.email.touched && userForm.controls.email.errors?.required'> 
         Skriv venligst din email
     </div>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" style="width: 100%; text-align: center;">
         <input matInput type="password" placeholder="Password" formControlName="password">
     </mat-form-field><br>
     <div *ngIf='userForm.controls.password.touched && userForm.controls.password.errors?.required'> 
@@ -50,10 +52,12 @@
     <label id="genderId">Vælg køn:</label>
     <mat-radio-group aria-labelledby="genderId" formControlName="gender">
     <!-- Replace 1, 0 with true, false -->
-      <mat-radio-button style="display: inline; margin-left: 10px" *ngFor="let option of [{'val': 1, 'name': 'Mand'}, {'val': 0, 'name': 'Kvinde'}]" [value]="option.val">
+      <mat-radio-button style="display: inline; margin-left: 10px;" *ngFor="let option of [{'val': 1, 'name': 'Mand'}, {'val': 0, 'name': 'Kvinde'}]" [value]="option.val">
         {{option.name}}
       </mat-radio-button>
     </mat-radio-group><br>
 
-    <button mat-flat-button type="submit" color="primary" >Registrer</button>
+    <button mat-flat-button type="submit" color="primary" style="width: 100%; text-align: center; margin-top: 20px; background-color: #00da9b;">Registrer</button>
   </form>
+
+  </div>

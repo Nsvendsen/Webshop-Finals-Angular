@@ -17,7 +17,8 @@ export class UserActions {
 
 // We depencency inject the redux library.
 constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserApiService, private authService: AuthService, 
-    private router: Router, private basketActions: BasketActions, private orderApiService: OrderApiService) {} //Remove basket actions and use user basket instead?
+    private router: Router, private basketActions: BasketActions, private orderApiService: OrderApiService, 
+    private snackBar: MatSnackBar) {} //Remove basket actions and use user basket instead?
 
   // This gives a strongly typed way to call an action.
 //   static ADD_PRODUCT_TO_BASKET: string = 'ADD_PRODUCT_TO_BASKET'; 
@@ -45,18 +46,26 @@ constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserAp
     }
 
     //Places order.
-    createOrder(order){
+    createOrder(order){ //: boolean
         this.orderApiService.placeOrder(order).subscribe(response => {
             console.log(response);
             this.ngRedux.dispatch({ 
                 type: UserActions.CREATE_ORDER,
                 payload: response //Response a order object.
             });
-
             this.basketActions.clearBasket(); //Remove all products from the basket.
+            this.openSnackBar('Ordre modtaget.','Ordre'); //Display success message.
+            // return true;
         }, error => {
             console.log("Error!", error);
+            this.openSnackBar('Ordre fejlet.','Ordre'); //Display fail message.
+            // return false;
         });
     }
-  
+
+    openSnackBar(message: string, action: string) {
+        this.snackBar.open(message, action, {
+            duration: 2000,
+        });
+    }
 }

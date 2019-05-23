@@ -57,7 +57,7 @@ export class SignUpComponent implements OnInit {
     let user = userForm.value as User;
     this.userApiService.addUser(user).subscribe((response: User) => {
       console.log(response);
-      this.openSnackBar('User was created successfully.','User'); //Display success message.
+      this.openSnackBar('Bruger oprettet successfuldt.','Bruger'); //Display success message.
     }, error => {
       console.log("The following error was encountered:", error);
     });

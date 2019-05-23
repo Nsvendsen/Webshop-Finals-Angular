@@ -5,6 +5,7 @@ import { Product } from 'src/app/entities/product';
 import { ProductsActions } from '../products.actions';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BasketActions } from '../../basket/basket.actions';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-view-one-product',
@@ -18,7 +19,7 @@ export class ViewOneProductComponent implements OnInit {
   basketForm;
 
   constructor( private productApiService: ProductApiService, private router: Router, private productsActions: ProductsActions,
-    private fb: FormBuilder, private basketActions: BasketActions) { } //Use productActions instead of productApiService
+    private fb: FormBuilder, private basketActions: BasketActions, private snackBar: MatSnackBar) { } //Use productActions instead of productApiService
 
   ngOnInit() {
     var PathSplit = this.router.url.split("/");
@@ -62,10 +63,17 @@ export class ViewOneProductComponent implements OnInit {
     let filteredVariations = this.oneProduct.productVariations.filter(x => x.id == productVariationId); //Filter product variations in product.
     this.oneProduct.productVariations = filteredVariations; //Assign filtered array to product instance.
     this.basketActions.addToBasket(this.oneProduct); //Dispatch action with the changed product.
+    this.openSnackBar('Produkt tilføjet til kurven.','Kurv'); //Display success message.
 
     // window.dataLayer.push({'event': 'basketAdd', 'eventData': {
     //   'product': product,
     //   'user': user 
     // });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+        duration: 2000,
+    });
   }
 }

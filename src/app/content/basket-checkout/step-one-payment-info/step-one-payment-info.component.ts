@@ -8,6 +8,7 @@ import { IAppState } from 'src/app/store';
 import { BasketActions } from '../../basket/basket.actions';
 import { Order } from 'src/app/entities/order';
 import { User } from 'src/app/entities/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-step-one-payment-info',
@@ -25,7 +26,7 @@ export class StepOnePaymentInfoComponent implements OnInit {
   @Output() changeStep: EventEmitter<any> = new EventEmitter; //Data from child to parent component.
 
   constructor(private fb: FormBuilder, private userActions: UserActions, private ngRedux: NgRedux<IAppState>, 
-    private basketActions: BasketActions) { }
+    private basketActions: BasketActions, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     //Reactive form validation.
@@ -77,7 +78,21 @@ export class StepOnePaymentInfoComponent implements OnInit {
     theOrder.userId = this.loggedInUser.id;
     console.log(theOrder);
 
-    this.userActions.createOrder(theOrder);
+    this.userActions.createOrder(theOrder); //var success = 
+
+    // if(success){
+      //Consider not sending if fail? make return value on createOrder.
     this.changeStep.emit(2); //Display step 2 in parent component.
+      // this.openSnackBar('Ordre modtaget.','Ordre'); //Display success message.
+    // }
+    // else {
+    //   this.openSnackBar('Ordre fejlet.','Ordre'); //Display success message.
+    // }
   }
+
+  // openSnackBar(message: string, action: string) {
+  //   this.snackBar.open(message, action, {
+  //       duration: 2000,
+  //   });
+  // }
 }

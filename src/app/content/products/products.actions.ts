@@ -3,6 +3,7 @@ import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../../store';
 import { ProductApiService } from 'src/app/services/product-api.service';
 import { Product } from 'src/app/entities/product';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root'})
 
@@ -10,7 +11,7 @@ import { Product } from 'src/app/entities/product';
 export class ProductsActions {
 
 // We depencency inject the redux library.
-constructor (private ngRedux: NgRedux<IAppState>, private productApiService: ProductApiService) {} 
+constructor (private ngRedux: NgRedux<IAppState>, private productApiService: ProductApiService, private snackBar: MatSnackBar) {} 
 
   // This gives a strongly typed way to call an action.
   static CREATE_PRODUCT: string = 'CREATE_PRODUCT'; //Create
@@ -44,6 +45,7 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
         type: ProductsActions.CREATE_PRODUCT_SUCCESS,
         payload: response // response is the payload because product now has an id. Else use product.
       });
+      this.openSnackBar('Produkt oprettet.','Produkt'); //Display success message.
     }, error => {
       console.log("Error! Product was not created", error);
 
@@ -52,6 +54,7 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
         type: ProductsActions.CREATE_PRODUCT_FAILURE,
         payload: error //response
       });
+      this.openSnackBar('Produkt ikke oprettet.','Produkt'); //Display success message.
     }); 
   }
 
@@ -61,8 +64,10 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
         type: ProductsActions.UPDATE_PRODUCT,
         payload: response //response or product
       });
+      this.openSnackBar('Produkt opdateret.','Produkt'); //Display success message.
     }, error => {
       console.log("Error! Product was not updated", error);
+      this.openSnackBar('Produkt ikke opdateret.','Produkt'); //Display success message.
     });
   }
 
@@ -72,8 +77,10 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
         type: ProductsActions.DELETE_PRODUCT,
         payload: id
       });
+      this.openSnackBar('Produkt slettet.','Produkt'); //Display success message.
     }, error => { //Might cause error?
       console.log("Error! Product was not deleted", error);
+      this.openSnackBar('Produkt ikke slettet.','Produkt'); //Display success message.
     }); 
   }
 
@@ -105,5 +112,11 @@ constructor (private ngRedux: NgRedux<IAppState>, private productApiService: Pro
 
   getOneProduct(id: any){
 
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+        duration: 2000,
+    });
   }
 }

@@ -1,12 +1,10 @@
+<h1>Trin {{checkoutStep}}</h1>
 <p *ngIf="checkoutStep === 1">
-  Trin {{checkoutStep}}
   <!-- Data from child to parent -->
   <app-step-one-payment-info (changeStep)="childEventChangeStep($event)"></app-step-one-payment-info>
 </p>
 
 <p *ngIf="checkoutStep === 2">
-  Trin {{checkoutStep}}
-  
   <app-step-two-finalize></app-step-two-finalize>
 </p>
 
