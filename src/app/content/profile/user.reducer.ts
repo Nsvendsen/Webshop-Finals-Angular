@@ -17,6 +17,9 @@ export function userReducer(state: UserState = INITIAL_STATE, action:any) {
 
         case UserActions.CREATE_ORDER: //action.payload = Order
             return tassign(state, { orders: [...state.orders, action.payload]});
+
+        case UserActions.GET_MY_ORDERS:
+            return tassign(state, { orders: [...action.payload]});
         default:
             return state;
     }

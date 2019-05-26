@@ -19,8 +19,8 @@ export class OrderApiService {
   //   return this.http.get(environment.apiUrl + "/order.php");
   // }
 
-  // getAllOrdersByUserId(userId: any) { //Use queryparam?
-  //   return this.http.get(environment.apiUrl + "/order.php");
-  // }
+  getAllOrdersForUser(userId: any) { 
+    return this.http.get(environment.apiUrl + "/order.php?user="+userId);
+  }
 
 }

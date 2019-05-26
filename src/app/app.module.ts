@@ -54,6 +54,7 @@ import { BasketCheckoutComponent } from './content/basket-checkout/basket-checko
 import { StepOnePaymentInfoComponent } from './content/basket-checkout/step-one-payment-info/step-one-payment-info.component';
 import { StepTwoFinalizeComponent } from './content/basket-checkout/step-two-finalize/step-two-finalize.component';
 import { MyOrdersComponent } from './content/profile/my-orders/my-orders.component';
+import { MyOrdersViewOneComponent } from './content/profile/my-orders-view-one/my-orders-view-one.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { MyOrdersComponent } from './content/profile/my-orders/my-orders.compone
     BasketCheckoutComponent,
     StepOnePaymentInfoComponent,
     StepTwoFinalizeComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    MyOrdersViewOneComponent
   ],
   imports: [
     BrowserModule,

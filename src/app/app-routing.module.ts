@@ -28,6 +28,7 @@ import { BasketCheckoutComponent } from './content/basket-checkout/basket-checko
 import { StepOnePaymentInfoComponent } from './content/basket-checkout/step-one-payment-info/step-one-payment-info.component';
 import { MyOrdersComponent } from './content/profile/my-orders/my-orders.component';
 import { StepTwoFinalizeComponent } from './content/basket-checkout/step-two-finalize/step-two-finalize.component';
+import { MyOrdersViewOneComponent } from './content/profile/my-orders-view-one/my-orders-view-one.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -40,7 +41,8 @@ const routes: Routes = [
 
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [ 
       {path: 'myprofile', component: MyProfileComponent},
-      {path: 'myorders', component: MyOrdersComponent}
+      {path: 'myorders', component: MyOrdersComponent},
+      {path: 'myorders/:order-id', component: MyOrdersViewOneComponent}
     ]},
 
     {path: 'basket', component: BasketComponent},

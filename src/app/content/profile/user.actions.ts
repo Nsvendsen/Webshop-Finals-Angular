@@ -25,6 +25,7 @@ constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserAp
 //   static REMOVE_PRODUCT_FROM_BASKET: string = 'REMOVE_PRODUCT_FROM_BASKET'; 
     static LOGIN: string = 'LOGIN'; 
     static CREATE_ORDER: string = 'CREATE_ORDER'; 
+    static GET_MY_ORDERS: string = 'GET_MY_ORDERS';
 
     login(loginInformation): any {
         this.userApiService.login(loginInformation).subscribe(response => {
@@ -46,7 +47,7 @@ constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserAp
     }
 
     //Places order.
-    createOrder(order){ //: boolean
+    createOrder(order){
         this.orderApiService.placeOrder(order).subscribe(response => {
             console.log(response);
             this.ngRedux.dispatch({ 
@@ -55,11 +56,25 @@ constructor (private ngRedux: NgRedux<IAppState>, private userApiService: UserAp
             });
             this.basketActions.clearBasket(); //Remove all products from the basket.
             this.openSnackBar('Ordre modtaget.','Ordre'); //Display success message.
-            // return true;
         }, error => {
             console.log("Error!", error);
             this.openSnackBar('Ordre fejlet.','Ordre'); //Display fail message.
-            // return false;
+        });
+    }
+
+    getMyOrders() {
+        var userId;
+        this.ngRedux.select(x => x.user).subscribe((data) => {
+            userId = data.loggedInUser.id;
+        });
+
+        this.orderApiService.getAllOrdersForUser(userId).subscribe(response => {
+            this.ngRedux.dispatch({ 
+                type: UserActions.GET_MY_ORDERS,
+                payload: response //Response a order object.
+            });
+        }, error => {
+            console.log("Error!", error);
         });
     }
 
