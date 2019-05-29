@@ -59,7 +59,7 @@ const routes: Routes = [
     {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { expectedRole: 'admin'}, children: [ 
       {path: 'products', component: AdminProductsComponent, children: [
         {path: 'new', component: CreateOrEditProductComponent},
-        {path: 'edit/:product-id', component: CreateOrEditProductComponent},
+        {path: 'edit/:product-id', component: CreateOrEditProductComponent}, 
         {path: 'list', component: AdminViewProductListComponent},
         {path: 'variations', component: AdminProductVariationsComponent, children: [
           {path: ':product-id', component: AdminViewProductVariationsComponent},

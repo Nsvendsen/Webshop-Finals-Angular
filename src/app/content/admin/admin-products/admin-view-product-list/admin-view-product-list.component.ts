@@ -38,6 +38,11 @@ export class AdminViewProductListComponent implements OnInit {
     });
   }
 
+  editProduct(productId: any){
+    this.router.navigate(['/admin/products/edit/' + productId]);
+    console.log(productId);
+  }
+
   deleteProduct(productId: any){
     let conf = confirm("Er du sikker på at du vil slette produktet?");
     if(conf){

@@ -33,7 +33,7 @@ export class CreateOrEditProductVariationComponent implements OnInit {
       }
     );
 
-    //Determine if user wants to edit a product.
+    //Determine if user wants to edit a product variation.
     var pathSplit = this.router.url.split("/");
     var currentProductId = pathSplit[pathSplit.length-1];
     if (!isNaN(Number(currentProductId))){
