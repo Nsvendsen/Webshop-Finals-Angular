@@ -31,8 +31,6 @@ import { StepTwoFinalizeComponent } from './content/basket-checkout/step-two-fin
 import { MyOrdersViewOneComponent } from './content/profile/my-orders-view-one/my-orders-view-one.component';
 
 const routes: Routes = [
-  // {path: '', redirectTo: 'index', pathMatch: 'full'},
-
   // Subrouting children
   {path: '', component: ContentComponent, children: [
     // {path: '', component: IndexPageComponent},

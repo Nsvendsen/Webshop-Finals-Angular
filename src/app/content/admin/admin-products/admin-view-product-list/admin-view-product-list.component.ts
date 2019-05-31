@@ -14,11 +14,11 @@ import { Router } from '@angular/router';
 })
 export class AdminViewProductListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'isActive', 'category', 'price', 'actions']; //Sets columns in this order. FIX to match product instead of item object
+  displayedColumns: string[] = ['id', 'name', 'isActive', 'category', 'price', 'actions']; //Sets columns in this order. 
   products: Product[];  
   isProcessing: boolean;
 
-  // https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource  02-05-2019 add products instead of hardcoded ITEM_DATA
+  // https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource 
   dataSource = new MatTableDataSource<Product>(); //ITEM_DATA / this.products as param
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

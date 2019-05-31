@@ -20,7 +20,7 @@ export class AdminViewProductVariationsComponent implements OnInit {
   product: Product;  
   isProcessing: boolean;
 
-  // https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource  02-05-2019 add products instead of hardcoded ITEM_DATA
+  // https://stackoverflow.com/questions/47581267/how-to-add-data-dynamically-to-mat-table-datasource
   dataSource = new MatTableDataSource<ProductVariation>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
